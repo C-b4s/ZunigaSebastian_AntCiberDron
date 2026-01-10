@@ -14,7 +14,7 @@ public class ZSAutomata {
                                       {zsEr  ,zsEr  ,zsEr   ,4    ,zsEr}, // q3
                                       {zsEr  ,zsEr  ,zsEr   ,4    ,zsOk}, // q4
                             };
-                            @SuppressWarnings("resource")
+    @SuppressWarnings("resource")
     private int zsGetIndexALfabeto(String zsCaracter){
     Scanner zsScAlfa = new Scanner(zsAlfabeto).useDelimiter(",");
     for (int i = 0; zsScAlfa.hasNext(); i++)
