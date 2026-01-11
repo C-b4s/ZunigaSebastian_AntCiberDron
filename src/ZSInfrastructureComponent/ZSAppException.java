@@ -24,7 +24,7 @@ public class ZSAppException extends Exception{
         String zsTimeStamp  = LocalDateTime.now().format(FORMATTER);
         String zsClassName  = (clase == null) ? "undefined" : clase.getSimpleName();
         String zsMethodName = (metodo == null || metodo.isBlank()) ? "undefined" : metodo;
-        String zsLogMessage = String.format("[ PatException | %s.%s | %s ]  ❱ %s", zsClassName, zsMethodName, zsTimeStamp, zsError);
+        String zsLogMessage = String.format("[ AppException | %s.%s | %s ]  ❱ %s", zsClassName, zsMethodName, zsTimeStamp, zsError);
 
         try (PrintWriter writer = new PrintWriter(new FileWriter(ZSAppConfig.ZSLOGFILE, true))) {
             System.err.println(ZSCMDColor.BLUE  + zsLogMessage);

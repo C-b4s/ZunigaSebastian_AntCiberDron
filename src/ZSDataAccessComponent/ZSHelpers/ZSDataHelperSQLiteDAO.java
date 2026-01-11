@@ -10,7 +10,7 @@ import java.util.List;
 import ZSDataAccessComponent.ZSInterfaces.IZSDataHelperSQLiteDAO;
 import ZSInfrastructureComponent.ZSAppConfig;
 import ZSInfrastructureComponent.ZSAppException;
-
+    
 public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
     protected final Class<T> ZSDTOClass;
     protected final String  ZSTableName;
@@ -49,33 +49,39 @@ public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
     }
 
     @Override
-    public List<T> readAll() throws ZSAppException {
+    public List<T> zsReadAll() throws ZSAppException {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'readAll'");
     }
 
     @Override
-    public T readBy(Integer id) throws ZSAppException {
+    public T zsReadBy(Integer id) throws ZSAppException {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'readBy'");
     }
 
     @Override
-    public boolean create(Object entity) throws ZSAppException {
+    public boolean zsCreate(Object entity) throws ZSAppException {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'create'");
     }
 
     @Override
-    public boolean update(Object entity) throws ZSAppException {
+    public boolean zsUpdate(Object entity) throws ZSAppException {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
 
     @Override
-    public boolean delete(Integer id) throws ZSAppException {
+    public boolean zsDelete(Integer id) throws ZSAppException {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'delete'");
+    }
+
+    @Override
+    public Integer zsGetMaxReg() throws ZSAppException {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'zsGetMaxReg'");
     }
 
 }

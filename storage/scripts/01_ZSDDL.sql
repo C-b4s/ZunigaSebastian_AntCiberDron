@@ -1,4 +1,4 @@
--- © 2K26 ❱──💀──❰ pat_mic ? code is life : life is code
+-- © 2K26 ❱──👾──❰ c_bit? code is life : life is code
 
 DROP TABLE IF EXISTS Hormiga;
 DROP TABLE IF EXISTS HormigaTipo;
