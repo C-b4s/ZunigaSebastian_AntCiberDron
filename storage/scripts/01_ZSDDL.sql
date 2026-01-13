@@ -1,19 +1,19 @@
 -- database: ..\Databases\ZSAnt.sqlite
 -- © 2K26 ❱──👾──❰ c_bit
 
+DROP TABLE IF EXISTS ZSHormigaAntCiberDron;
+DROP TABLE IF EXISTS ZSAntCiberDron;
+DROP TABLE IF EXISTS ZSHormigaAlimento;
+DROP TABLE IF EXISTS ZSHormiga;
+DROP TABLE IF EXISTS ZSAlimento;
+DROP TABLE IF EXISTS ZSHormigaTipo;
+DROP TABLE IF EXISTS ZSAlimentoTipo;
+DROP TABLE IF EXISTS ZSSexo;
+DROP TABLE IF EXISTS ZSEstado;
 
-DROP TABLE IF EXISTS zsHormiga;
-DROP TABLE IF EXISTS zsHormigaTipo;
-DROP TABLE IF EXISTS zsSexo;
-DROP TABLE IF EXISTS zsAlimentoTipo;
-DROP TABLE IF EXISTS zsEstado;
-DROP TABLE IF EXISTS zsCatalogo;
 
-CREATE TABLE zsHormiga (
-     zsIdHormiga      INTEGER PRIMARY KEY AUTOINCREMENT
-    ,zsIdHormigaTipo  INTEGER NOT NULL REFERENCES zsHormigaTipo (zsIdHormigaTipo)
-    ,zsIdSexo         INTEGER NOT NULL REFERENCES zsSexo        (zsIdSexo)
-    ,zsIdEstado       INTEGER NOT NULL REFERENCES zsEstado      (zsIdEstado)
+CREATE TABLE ZSAlimentoTipo (
+     IdZSAlimentoTipo INTEGER PRIMARY KEY AUTOINCREMENT     
     ,zsNombre         VARCHAR(15) NOT NULL UNIQUE
     ,zsDescripcion    VARCHAR(100) NULL
     ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
@@ -21,8 +21,8 @@ CREATE TABLE zsHormiga (
     ,zsFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
 );
 
-CREATE TABLE zsHormigaTipo (
-     zsIdHormigaTipo  INTEGER PRIMARY KEY AUTOINCREMENT     
+CREATE TABLE ZSHormigaTipo (
+     IdZSHormigaTipo  INTEGER PRIMARY KEY AUTOINCREMENT     
     ,zsNombre         VARCHAR(15) NOT NULL UNIQUE
     ,zsDescripcion    VARCHAR(100) NULL
     ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
@@ -30,8 +30,8 @@ CREATE TABLE zsHormigaTipo (
     ,zsFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
 );
 
-CREATE TABLE zsAlimentoTipo (
-     zsIdAlimentoTipo INTEGER PRIMARY KEY AUTOINCREMENT     
+CREATE TABLE ZSSexo (
+     IdZSSexo         INTEGER PRIMARY KEY AUTOINCREMENT
     ,zsNombre         VARCHAR(15) NOT NULL UNIQUE
     ,zsDescripcion    VARCHAR(100) NULL
     ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
@@ -39,17 +39,8 @@ CREATE TABLE zsAlimentoTipo (
     ,zsFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
 );
 
-CREATE TABLE zsEstado (
-     zsIdEstado       INTEGER PRIMARY KEY AUTOINCREMENT     
-    ,zsNombre         VARCHAR(15) NOT NULL UNIQUE
-    ,zsDescripcion    VARCHAR(100) NULL
-    ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
-    ,zsFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
-    ,zsFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
-);
-
-CREATE TABLE zsSexo (
-     zsIdSexo         INTEGER PRIMARY KEY AUTOINCREMENT
+CREATE TABLE ZSEstado (
+     IdZSEstado       INTEGER PRIMARY KEY AUTOINCREMENT     
     ,zsNombre         VARCHAR(15) NOT NULL UNIQUE
     ,zsDescripcion    VARCHAR(100) NULL
     ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
@@ -58,13 +49,52 @@ CREATE TABLE zsSexo (
 );
 
 
+CREATE TABLE ZSAlimento (
+         IdZSAlimento     INTEGER PRIMARY KEY AUTOINCREMENT
+        ,IdZSAlimentoTipo INTEGER NOT NULL REFERENCES ZSAlimentoTipo (IdZSAlimentoTipo)
+        ,zsNombre         VARCHAR(15) NOT NULL UNIQUE
+        ,zsDescripcion    VARCHAR(100) NULL
+        ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
+        ,zsFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+        ,zsFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+);
 
-CREATE TABLE zsCatalogo (
-     zsIdCatalogo         INTEGER PRIMARY KEY AUTOINCREMENT
-    ,zsIdCatalogoPadre    INTEGER 
-    ,zsNombre             VARCHAR(20) NOT NULL  UNIQUE
-    ,zsDetalle            VARCHAR(20)  NULL
-    ,zsEstado             VARCHAR(1) NOT NULL DEFAULT ('A')
-    ,zsFechaCreacion      DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
-    ,zsFechaModifica      DATETIME  DEFAULT (datetime('now','localtime'))
+CREATE TABLE ZSHormiga (
+     IdZSHormiga      INTEGER PRIMARY KEY AUTOINCREMENT
+    ,IdZSHormigaTipo  INTEGER NOT NULL REFERENCES ZSHormigaTipo (IdZSHormigaTipo)
+    ,IdZSSexo         INTEGER NOT NULL REFERENCES ZSSexo        (IdZSSexo)
+    ,IdZSEstado       INTEGER NOT NULL REFERENCES ZSEstado      (IdZSEstado)
+    ,zsNombre         VARCHAR(15) NOT NULL UNIQUE
+    ,zsDescripcion    VARCHAR(100) NULL
+    ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
+    ,zsFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,zsFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+);
+
+CREATE TABLE ZSHormigaAlimento (
+         IdZSHormigaAlimento INTEGER PRIMARY KEY AUTOINCREMENT
+        ,IdZSHormiga        INTEGER NOT NULL REFERENCES ZSHormiga (IdZSHormiga)
+        ,IdZSAlimento      INTEGER NOT NULL REFERENCES ZSAlimento (IdZSAlimento)
+        ,zsDescripcion   VARCHAR(100) NULL
+        ,zsEstado          VARCHAR(1)  NOT NULL DEFAULT ('A')
+        ,zsFechaCreacion   DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+        ,zsFechaModifica   DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+);
+
+CREATE TABLE ZSAntCiberDron(
+         IdZSAntCiberDron      INTEGER PRIMARY KEY AUTOINCREMENT
+        ,zsSerie             VARCHAR(15) NOT NULL UNIQUE
+        ,zsEstado              VARCHAR(1)  NOT NULL DEFAULT ('A')
+        ,zsFechaCreacion       DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+        ,zsFechaModifica       DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+);
+
+CREATE TABLE ZSHormigaAntCiberDron(
+        IdZSHormigaAntCiberDron INTEGER PRIMARY KEY AUTOINCREMENT
+         ,IdZSHormiga        INTEGER NOT NULL REFERENCES ZSHormiga (IdZSHormiga)
+         ,IdZSAntCiberDron INTEGER NOT NULL REFERENCES ZSAntCiberDron (IdZSAntCiberDron)
+         ,zsDescripcion VARCHAR(100) NULL
+         ,zsEstado     VARCHAR(1)  NOT NULL DEFAULT ('A')
+         ,zsFechaCreacion DATETIME NOT NULL DEFAULT (datetime('now','localtime'))
+         ,zsFechaModifica DDATETIME NOT NULL DEFAULT (datetime('now','localtime'))
 );
