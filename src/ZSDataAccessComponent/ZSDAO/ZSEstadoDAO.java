@@ -7,7 +7,7 @@ import ZSInfrastructureComponent.ZSAppException;
 public class ZSEstadoDAO extends ZSDataHelperSQLiteDAO<ZSEstadoDTO>{
 
     public ZSEstadoDAO(Class<ZSEstadoDTO> ZSDtoClass, String zsTableName, String zsTablePK) throws ZSAppException {
-        super(ZSEstadoDTO.class, "zsEstado", "zsIdEstado");
+        super(ZSEstadoDTO.class, "ZSEstado", "IdZSEstado");
     }
 
 }

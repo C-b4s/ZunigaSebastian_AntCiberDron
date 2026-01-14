@@ -1,7 +1,7 @@
 package ZSDataAccessComponent.ZSDTOs;
 
 public class ZSSexoDTO {
-    private Integer zsIdSexo;
+    private Integer IdZSSexo;
     private String zsNombre;
     private String zsDescripcion;
     private String zsEstado;
@@ -12,9 +12,9 @@ public class ZSSexoDTO {
     public ZSSexoDTO() {
     }
 
-    public ZSSexoDTO(Integer zsIdSexo, String zsNombre, String zsDescripcion, String zsEstado, String zsFechaCreacion,
+    public ZSSexoDTO(Integer IdZSSexo, String zsNombre, String zsDescripcion, String zsEstado, String zsFechaCreacion,
             String zsFechaModifica) {
-        this.zsIdSexo = zsIdSexo;
+        this.IdZSSexo = IdZSSexo;
         this.zsNombre = zsNombre;
         this.zsDescripcion = zsDescripcion;
         this.zsEstado = zsEstado;
@@ -22,12 +22,12 @@ public class ZSSexoDTO {
         this.zsFechaModifica = zsFechaModifica;
     }
 
-    public Integer getZSIdSexo() {
-        return zsIdSexo;
+    public Integer getIdZSSexo() {
+        return IdZSSexo;
     }
 
-    public void setZSIdSexo(Integer zsIdSexo) {
-        this.zsIdSexo = zsIdSexo;
+    public void setIdZSSexo(Integer IdZSSexo) {
+        this.IdZSSexo = IdZSSexo;
     }
 
     public String getZSNombre() {
@@ -72,7 +72,7 @@ public class ZSSexoDTO {
 
     @Override
     public String toString() {
-        return   "\n idSexo               " + zsIdSexo
+        return   "\n idSexo               " + IdZSSexo
                + "\n nombre               " + zsNombre 
                + "\n descripcion          " + zsDescripcion 
                + "\n estado               " + zsEstado  

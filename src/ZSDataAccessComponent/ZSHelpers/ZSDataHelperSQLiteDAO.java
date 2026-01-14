@@ -53,7 +53,7 @@ public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
         try {
             zsOpenConnection();
         } catch (SQLException e) {
-            throw new ZSAppException(e, getClass(), "ZSDataHelperSQLiteDAO");
+            throw new ZSAppException(e.getMessage(),e, getClass(), "ZSDataHelperSQLiteDAO");
         }
         this.zsDTOClass  = ZSDtoClass;
         this.zsTableName = zsTableName;
@@ -96,7 +96,7 @@ public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
             }
             return (zsStmt.executeUpdate() > 0);
         } catch (SQLException | IllegalAccessException e) {
-            throw new ZSAppException(e, getClass(), "zsCreate");
+            throw new ZSAppException(e.getMessage(),e, getClass(), "zsCreate");
         }
     }
 
@@ -143,20 +143,20 @@ public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
             }
 
         }   catch (SQLException | IllegalAccessException e) {
-            throw new ZSAppException(e, getClass(), "zsUpdate");
+            throw new ZSAppException(e.getMessage(),e, getClass(), "zsUpdate");
         }
     }
 
     @Override
     public boolean zsDelete(Integer id) throws ZSAppException {
-        String zsSql = String.format("UPDATE %s SET zsEstado = ?, FechaModifica = ? WHERE %s = ?", zsTableName, zsTablePK);
+        String zsSql = String.format("UPDATE %s SET zsEstado = ?, zsFechaModifica = ? WHERE %s = ?", zsTableName, zsTablePK);
         try (PreparedStatement zsStmt = zsOpenConnection().prepareStatement(zsSql)) {
             zsStmt.setString(1, "X");
             zsStmt.setString(2, zsGetDateTimeNow());
             zsStmt.setInt   (3, id);
             return zsStmt.executeUpdate() > 0;
         }catch (SQLException e) {
-            throw new ZSAppException(e, getClass(), "zsDelete");
+            throw new ZSAppException(e.getMessage(), e, getClass(), "zsDelete");
         }
     }
 
@@ -171,7 +171,7 @@ public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
                 zsList.add(zsMapResultSetToEntity(zsRs));
             }
         } catch (SQLException e) {
-            throw new ZSAppException(e, getClass(), "zsReadAll");
+            throw new ZSAppException(e.getMessage(),e, getClass(), "zsReadAll");
         }
         return zsList;
     }
@@ -185,7 +185,7 @@ public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
                 return zsRs.next() ? zsMapResultSetToEntity(zsRs) : null;
             }
         }catch (SQLException e) {
-            throw new ZSAppException(e, getClass(), "zsReadBy");
+            throw new ZSAppException(e.getMessage(),e, getClass(), "zsReadBy");
         }
     }
     
@@ -196,7 +196,7 @@ public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
              ResultSet zsRs = zsStmt.executeQuery()) {
             return zsRs.next() ? zsRs.getInt(1) : 0;
         } catch (SQLException e) {
-            throw new ZSAppException(e, getClass(), "zsGetMaxReg");
+            throw new ZSAppException(e.getMessage(),e, getClass(), "zsGetMaxReg");
         }
     }
 
@@ -217,7 +217,7 @@ public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
             }
             return zsInstance;
         } catch (SQLException | NoSuchMethodException | InvocationTargetException | InstantiationException | IllegalAccessException | NoSuchFieldException e) {
-            throw new ZSAppException(e, getClass(), "zsMapResultSetTozsEntity");
+            throw new ZSAppException(e.getMessage(),e, getClass(), "zsMapResultSetToEntity");
         }
     }
 

@@ -1,10 +1,10 @@
 package ZSDataAccessComponent.ZSDTOs;
 
 public class ZSHormigaDTO {
-    private Integer zsIdHormiga;
-    private Integer zsIdHormigaTipo;
-    private Integer zsIdSexo;
-    private Integer zsIdEstado;
+    private Integer IdZSHormiga;
+    private Integer IdZSHormigaTipo;
+    private Integer IdZSSexo;
+    private Integer IdZSEstado;
     private String zsNombre;
     private String zsDescripcion;
     private String zsEstado;
@@ -14,12 +14,12 @@ public class ZSHormigaDTO {
 
     public ZSHormigaDTO(){}
 
-    public ZSHormigaDTO(Integer zsIdHormiga, Integer zsIdHormigaTipo, Integer zsIdSexo, Integer zsIdEstado,
+    public ZSHormigaDTO(Integer IdZSHormiga, Integer IdZSHormigaTipo, Integer IdZSSexo, Integer IdZSEstado,
             String zsNombre, String zsDescripcion, String zsEstado, String zsFechaCreacion, String zsFechaModifica) {
-        this.zsIdHormiga = zsIdHormiga;
-        this.zsIdHormigaTipo = zsIdHormigaTipo;
-        this.zsIdSexo = zsIdSexo;
-        this.zsIdEstado = zsIdEstado;
+        this.IdZSHormiga = IdZSHormiga;
+        this.IdZSHormigaTipo = IdZSHormigaTipo;
+        this.IdZSSexo = IdZSSexo;
+        this.IdZSEstado = IdZSEstado;
         this.zsNombre = zsNombre;
         this.zsDescripcion = zsDescripcion;
         this.zsEstado = zsEstado;
@@ -27,36 +27,36 @@ public class ZSHormigaDTO {
         this.zsFechaModifica = zsFechaModifica;
     }
 
-    public Integer getZSIdHormiga() {
-        return zsIdHormiga;
+    public Integer getIdZSHormiga() {
+        return IdZSHormiga;
     }
 
-    public void setZSIdHormiga(Integer zsIdHormiga) {
-        this.zsIdHormiga = zsIdHormiga;
+    public void setIdZSHormiga(Integer IdZSHormiga) {
+        this.IdZSHormiga = IdZSHormiga;
     }
 
-    public Integer getZSIdHormigaTipo() {
-        return zsIdHormigaTipo;
+    public Integer getIdZSHormigaTipo() {
+        return IdZSHormigaTipo;
     }
 
-    public void setZSIdHormigaTipo(Integer zsIdHormigaTipo) {
-        this.zsIdHormigaTipo = zsIdHormigaTipo;
+    public void setIdZSHormigaTipo(Integer IdZSHormigaTipo) {
+        this.IdZSHormigaTipo = IdZSHormigaTipo;
     }
 
     public Integer getZSIdSexo() {
-        return zsIdSexo;
+        return IdZSSexo;
     }
 
-    public void setZSIdSexo(Integer zsIdSexo) {
-        this.zsIdSexo = zsIdSexo;
+    public void setZSIdSexo(Integer IdZSSexo) {
+        this.IdZSSexo = IdZSSexo;
     }
 
     public Integer getZSIdEstado() {
-        return zsIdEstado;
+        return IdZSEstado;
     }
 
-    public void setZSIdEstado(Integer zsIdEstado) {
-        this.zsIdEstado = zsIdEstado;
+    public void setZSIdEstado(Integer IdZSEstado) {
+        this.IdZSEstado = IdZSEstado;
     }
 
     public String getZSNombre() {
@@ -101,10 +101,10 @@ public class ZSHormigaDTO {
 
     @Override
     public String toString() {
-        return   "\n idHormiga            " + zsIdHormiga 
-               + "\n idHormigaTipo        " + zsIdHormigaTipo
-               + "\n idSexo               " + zsIdSexo
-               + "\n idEstado             " + zsIdEstado    
+        return   "\n idHormiga            " + IdZSHormiga 
+               + "\n idHormigaTipo        " + IdZSHormigaTipo
+               + "\n idSexo               " + IdZSSexo
+               + "\n idEstado             " + IdZSEstado    
                + "\n nombre               " + zsNombre 
                + "\n descripcion          " + zsDescripcion 
                + "\n estado               " + zsEstado  

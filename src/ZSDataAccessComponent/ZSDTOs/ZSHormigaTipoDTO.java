@@ -2,7 +2,7 @@ package ZSDataAccessComponent.ZSDTOs;
 
 public class ZSHormigaTipoDTO {
     
-    private Integer zsIdHormigaTipo;
+    private Integer IdZSHormigaTipo;
     private String zsNombre;
     private String zsDescripcion;
     private String zsEstado;
@@ -14,9 +14,9 @@ public class ZSHormigaTipoDTO {
     public ZSHormigaTipoDTO() {
     }
 
-    public ZSHormigaTipoDTO(Integer zsIdHormigaTipo, String zsNombre, String zsDescripcion, String zsEstado,
+    public ZSHormigaTipoDTO(Integer IdZSHormigaTipo, String zsNombre, String zsDescripcion, String zsEstado,
             String zsFechaCreacion, String zsFechaModifica) {
-        this.zsIdHormigaTipo = zsIdHormigaTipo;
+        this.IdZSHormigaTipo = IdZSHormigaTipo;
         this.zsNombre = zsNombre;
         this.zsDescripcion = zsDescripcion;
         this.zsEstado = zsEstado;
@@ -24,12 +24,12 @@ public class ZSHormigaTipoDTO {
         this.zsFechaModifica = zsFechaModifica;
     }
 
-    public Integer getZsIdHormigaTipo() {
-        return zsIdHormigaTipo;
+    public Integer getIdZSHormigaTipo() {
+        return IdZSHormigaTipo;
     }
 
-    public void setZsIdHormigaTipo(Integer zsIdHormigaTipo) {
-        this.zsIdHormigaTipo = zsIdHormigaTipo;
+    public void setIdZSHormigaTipo(Integer IdZSHormigaTipo) {
+        this.IdZSHormigaTipo = IdZSHormigaTipo;
     }
 
     public String getZsNombre() {
@@ -74,7 +74,7 @@ public class ZSHormigaTipoDTO {
 
     @Override
     public String toString() {
-        return   "\n IdHormigaTipo        " + zsIdHormigaTipo
+        return   "\n IdHormigaTipo        " + IdZSHormigaTipo
                + "\n nombre               " + zsNombre 
                + "\n descripcion          " + zsDescripcion 
                + "\n estado               " + zsEstado  

@@ -13,41 +13,42 @@ import ZSDataAccessComponent.ZSDTOs.ZSSexoDTO;
 import ZSInfrastructureComponent.ZSAppException;
 import ZSInfrastructureComponent.ZSTools.ZSCMDColor;
 import ZSInfrastructureComponent.ZSTools.ZSCMDProgress;
+import ZSInfrastructureComponent.ZSTools.ZSMSG;
 
 public class App {
     public static void main(String[] args) throws Exception {
-
-        ZSSexoDAO zsSexo = new ZSSexoDAO(ZSSexoDTO.class, "zsSexo", "zsIdSexo");
-        for (ZSSexoDTO sexo : zsSexo.zsReadAll()) 
-            System.out.println(sexo.toString());
-
-
-        ZSAlimentoTipoDAO zsAlimento = new ZSAlimentoTipoDAO(ZSAlimentoTipoDTO.class, "zsAlimentoTipo", "zsIdAlimentoTipo");
-
-        for (ZSAlimentoTipoDTO alimento : zsAlimento.zsReadAll()) 
-            System.out.println(alimento.toString());
+        //Pruebas de DAO y DTO:
+        // ZSSexoDAO zsSexo = new ZSSexoDAO(ZSSexoDTO.class, "ZSSexo", "IdZSSexo");
+        // for (ZSSexoDTO sexo : zsSexo.zsReadAll()) 
+        //     System.out.println(sexo.toString());
 
 
-        ZSHormigaTipoDAO zsHormigaTipo = new ZSHormigaTipoDAO(ZSHormigaTipoDTO.class, "zsHormigaTipo", "zsIdHormigaTipo");
+        // ZSAlimentoTipoDAO zsAlimento = new ZSAlimentoTipoDAO(ZSAlimentoTipoDTO.class, "ZSAlimentoTipo", "IdZSAlimentoTipo");
 
-        for (ZSHormigaTipoDTO hormigaTipo : zsHormigaTipo.zsReadAll()) 
-            System.out.println(hormigaTipo.toString());
+        // for (ZSAlimentoTipoDTO alimento : zsAlimento.zsReadAll()) 
+        //     System.out.println(alimento.toString());
 
 
-        ZSEstadoDAO zsEstado = new ZSEstadoDAO(ZSEstadoDTO.class, "zsEstado", "zsIdEstaedo");
-        for (ZSEstadoDTO zsEs : zsEstado.zsReadAll())
-            System.out.println(zsEs.toString());
+        // ZSHormigaTipoDAO zsHormigaTipo = new ZSHormigaTipoDAO(ZSHormigaTipoDTO.class, "zsHormigaTipo", "zsIdHormigaTipo");
 
-        System.out.println("\n-------------------------------------------");
-        System.out.println(ZSCMDColor.BRIGHT_YELLOW + "Listado de todas las hormigas" + ZSCMDColor.RESET);
+        // for (ZSHormigaTipoDTO hormigaTipo : zsHormigaTipo.zsReadAll()) 
+        //     System.out.println(hormigaTipo.toString());
 
-        ZSHormigaDAO zsHormiga = new ZSHormigaDAO(ZSHormigaDTO.class, "zsHormiga", "zsIdHormiga");
 
-        for (ZSHormigaDTO hormiga : zsHormiga.zsReadAll()){
-            ZSCMDProgress.showSpinner();
-            System.out.println();
-            System.out.println(hormiga.toString());
-        }
+        // ZSEstadoDAO zsEstado = new ZSEstadoDAO(ZSEstadoDTO.class, "zsEstado", "zsIdEstaedo");
+        // for (ZSEstadoDTO zsEs : zsEstado.zsReadAll())
+        //     System.out.println(zsEs.toString());
+
+        // System.out.println("\n-------------------------------------------");
+        // System.out.println(ZSCMDColor.BRIGHT_YELLOW + "Listado de todas las hormigas" + ZSCMDColor.RESET);
+
+        // ZSHormigaDAO zsHormiga = new ZSHormigaDAO(ZSHormigaDTO.class, "zsHormiga", "zsIdHormiga");
+
+        // for (ZSHormigaDTO hormiga : zsHormiga.zsReadAll()){
+        //     ZSCMDProgress.showSpinner();
+        //     System.out.println();
+        //     System.out.println(hormiga.toString());
+        // }
 
             
         // ZSAutomata zsAutomata = new ZSAutomata();
@@ -58,8 +59,14 @@ public class App {
         // ZSSistemaRuso sistemaRuso = new ZSSistemaRuso();
         // sistemaRuso.zsReadCoord("storage\\DataFile\\ZunigaSebastian.csv");
         
-
-        // ZSAppException exception = new ZSAppException(new Exception("Hola"),null,"main");
+        // int a = 10;
+        // int b = 0;
+        // try {
+        //     a=a/b;
+        // } catch (Exception e) {
+        //     ZSAppException appEx = new ZSAppException("Error al dividir por cero",e,null,"main(...)");
+        //     ZSMSG.showMsgError(appEx.getMessage());
+        // }
 
 
     }

@@ -2,7 +2,7 @@ package ZSDataAccessComponent.ZSDTOs;
 
 public class ZSEstadoDTO {
     
-    private Integer zsIdEstado;
+    private Integer IdZSEstado;
     private String zsNombre;
     private String zsDescripcion;
     private String zsEstado;
@@ -12,9 +12,9 @@ public class ZSEstadoDTO {
     public ZSEstadoDTO() {
     }
 
-    public ZSEstadoDTO(Integer zsIdEstado, String zsNombre, String zsDescripcion, String zsEstado,
+    public ZSEstadoDTO(Integer IdZSEstado, String zsNombre, String zsDescripcion, String zsEstado,
             String zsFechaCreacion, String zsFechaModifica) {
-        this.zsIdEstado = zsIdEstado;
+        this.IdZSEstado = IdZSEstado;
         this.zsNombre = zsNombre;
         this.zsDescripcion = zsDescripcion;
         this.zsEstado = zsEstado;
@@ -24,13 +24,13 @@ public class ZSEstadoDTO {
     
 
 
-    public Integer getZSIdEstado() {
-        return zsIdEstado;
+    public Integer getIdZSEstado() {
+        return IdZSEstado;
     }
 
 
-    public void setZSIdEstado(Integer zsIdEstado) {
-        this.zsIdEstado = zsIdEstado;
+    public void setIdZSEstado(Integer IdZSEstado) {
+        this.IdZSEstado = IdZSEstado;
     }
 
 
@@ -85,7 +85,7 @@ public class ZSEstadoDTO {
 
     @Override
     public String toString(){
-        return   "\n idEstado             " + zsIdEstado
+        return   "\n idEstado             " + IdZSEstado
                + "\n nombre               " + zsNombre 
                + "\n descripcion          " + zsDescripcion 
                + "\n estado               " + zsEstado  

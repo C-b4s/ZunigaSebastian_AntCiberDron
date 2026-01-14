@@ -8,7 +8,7 @@ public class ZSAlimentoTipoDAO extends ZSDataHelperSQLiteDAO<ZSAlimentoTipoDTO>{
 
     public ZSAlimentoTipoDAO(Class<ZSAlimentoTipoDTO> ZSDtoClass, String zsTableName, String zsTablePK)
             throws ZSAppException {
-        super(ZSAlimentoTipoDTO.class, "zsAlimentoTipo", "zsIdAlimentoTipo");
+        super(ZSAlimentoTipoDTO.class, "ZSAlimentoTipo", "IdZSAlimentoTipo");
     }
 
 }

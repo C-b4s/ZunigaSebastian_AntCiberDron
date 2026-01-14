@@ -1,7 +1,7 @@
 package ZSDataAccessComponent.ZSDTOs;
 
 public class ZSAlimentoTipoDTO {
-    private Integer zsIdAlimentoTipo;
+    private Integer IdZSAlimentoTipo;
     private String zsNombre;
     private String zsDescripcion;
     private String zsEstado;
@@ -11,9 +11,9 @@ public class ZSAlimentoTipoDTO {
     public ZSAlimentoTipoDTO() {
     }
 
-    public ZSAlimentoTipoDTO(Integer zsIdAlimentoTipo, String zsNombre, String zsDescripcion, String zsEstado,
+    public ZSAlimentoTipoDTO(Integer IdZSAlimentoTipo, String zsNombre, String zsDescripcion, String zsEstado,
             String zsFechaCreacion, String zsFechaModifica) {
-        this.zsIdAlimentoTipo = zsIdAlimentoTipo;
+        this.IdZSAlimentoTipo = IdZSAlimentoTipo;
         this.zsNombre = zsNombre;
         this.zsDescripcion = zsDescripcion;
         this.zsEstado = zsEstado;
@@ -21,12 +21,12 @@ public class ZSAlimentoTipoDTO {
         this.zsFechaModifica = zsFechaModifica;
     }
 
-    public Integer getZSIdAlimentoTipo() {
-        return zsIdAlimentoTipo;
+    public Integer getIdZSAlimentoTipo() {
+        return IdZSAlimentoTipo;
     }
 
-    public void setZSIdAlimentoTipo(Integer zsIdAlimentoTipo) {
-        this.zsIdAlimentoTipo = zsIdAlimentoTipo;
+    public void setIdZSAlimentoTipo(Integer IdZSAlimentoTipo) {
+        this.IdZSAlimentoTipo = IdZSAlimentoTipo;
     }
 
     public String getZSNombre() {
@@ -71,7 +71,7 @@ public class ZSAlimentoTipoDTO {
 
     @Override
     public String toString() {
-        return   "\n idAlimentoTipo       " + zsIdAlimentoTipo
+        return   "\n idAlimentoTipo       " + IdZSAlimentoTipo
                + "\n nombre               " + zsNombre 
                + "\n descripcion          " + zsDescripcion 
                + "\n estado               " + zsEstado  
