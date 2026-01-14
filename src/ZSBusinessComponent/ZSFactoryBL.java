@@ -22,23 +22,23 @@ public class ZSFactoryBL <T> {
     //     this.zsODAO = supplier.get(); 
     // }
  
-    public List<T> getAll() throws ZSAppException {
+    public List<T> zsGetAll() throws ZSAppException {
          return zsODAO.zsReadAll();
     }
 
-    public T getBy(Integer zsId) throws ZSAppException {
+    public T zsGetBy(Integer zsId) throws ZSAppException {
         return zsODAO.zsReadBy(zsId);
     }
 
-    public boolean add(T zsOT) throws ZSAppException {
+    public boolean zsAdd(T zsOT) throws ZSAppException {
         return zsODAO.zsCreate(zsOT);
     }
 
-    public boolean upd(T zsOT) throws ZSAppException {
+    public boolean zsUpd(T zsOT) throws ZSAppException {
         return zsODAO.zsUpdate(zsOT);
     }
 
-    public boolean del(Integer zsId) throws ZSAppException {
+    public boolean zsDel(Integer zsId) throws ZSAppException {
         return zsODAO.zsDelete(zsId);
     }
 }

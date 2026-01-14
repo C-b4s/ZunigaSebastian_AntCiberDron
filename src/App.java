@@ -1,22 +1,48 @@
-import ZSBusinessComponent.ZSEntities.ZSHLarva;
+import ZSBusinessComponent.ZSFactoryBL;
+import ZSDataAccessComponent.ZSDAOs.ZSAntCiberDronDAO;
+import ZSDataAccessComponent.ZSDTOs.ZSAntCiberDronDTO;
 
 
 public class App {
     public static void main(String[] args) throws Exception {
         
-        try {
-            ZSHLarva zsL = new ZSHLarva();
-            System.out.println(zsL.getLarva(1).toString());
-        } catch (Exception e) {
+        ZSFactoryBL <ZSAntCiberDronDTO> zsFactoryBL = new ZSFactoryBL<>(ZSAntCiberDronDAO.class);
 
-            e.printStackTrace();
-        } 
+         for(var dto: zsFactoryBL.zsGetAll())
+            System.out.println(dto.toString());
+        //         System.out.println(dto.toString());
+        //   }
+        
+        //Pruebas de BL:
+        // try {
+        //     ZSHLarva zsL = new ZSHLarva();
+        //     System.out.println(zsL.getLarva(1).toString());
+        // } catch (Exception e) {
+
+        //     e.printStackTrace();
+        // } 
         
         
         
         
         
         //Pruebas de DAO y DTO:
+        // try {
+        //   ZSAntCiberDronDAO zsDao = new ZSAntCiberDronDAO();
+
+        //   for (int i = 1; i <= 5; i++){
+        //     ZSAntCiberDronDTO zsODTO = zsDao.zsReadBy(i);
+        //     zsODTO.setZSSerie("Serie-00" + i);
+        //     zsDao.zsUpdate(zsODTO);
+
+        //     for(var dto: zsDao.zsReadAll())
+        //         System.out.println(dto.toString());
+        //   }
+        // } catch (Exception e) {}
+        
+        
+        
+        
         // ZSSexoDAO zsSexo = new ZSSexoDAO(ZSSexoDTO.class, "ZSSexo", "IdZSSexo");
         // for (ZSSexoDTO sexo : zsSexo.zsReadAll()) 
         //     System.out.println(sexo.toString());
@@ -83,7 +109,6 @@ public class App {
         //     ZSAppException appEx = new ZSAppException("Error al dividir por cero",e,null,"main(...)");
         //     ZSMSG.showMsgError(appEx.getMessage());
         // }
-
 
     }
 }

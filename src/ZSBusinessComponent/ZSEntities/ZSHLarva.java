@@ -8,11 +8,11 @@ import ZSInfrastructureComponent.ZSAppException;
 public class ZSHLarva extends ZSHormiga{
     
     public ZSHormigaDTO getLarva(int zsId) throws ZSAppException{
-        return zsFactory.getBy(zsId);
+        return zsFactory.zsGetBy(zsId);
     }
     
     public List<ZSHormigaDTO> getLarvas() throws ZSAppException{
-        return zsFactory.getAll();
+        return zsFactory.zsGetAll();
     }
 
     public ZSHormiga comer(String comida){

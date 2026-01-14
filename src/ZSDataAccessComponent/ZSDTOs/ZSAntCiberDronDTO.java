@@ -9,6 +9,11 @@ public class ZSAntCiberDronDTO {
 
     public ZSAntCiberDronDTO(){}
 
+    public ZSAntCiberDronDTO(String zsSerie) {
+        IdZSAntCiberDron = 0;
+        this.zsSerie = zsSerie;
+    }
+
     public ZSAntCiberDronDTO(Integer idZSAntCiberDron, String zsSerie, String zsEstado, String zsFechaCreacion,
             String zsFechaModifica) {
         IdZSAntCiberDron     = idZSAntCiberDron;
@@ -60,10 +65,11 @@ public class ZSAntCiberDronDTO {
 
     @Override
     public String toString() {
-        return   "\n idAntCiberDron       " + IdZSAntCiberDron
-               + "\n serie                " + zsSerie 
-               + "\n estado               " + zsEstado  
-               + "\n fechaCreacion        " + zsFechaCreacion 
-               + "\n fechaModifica        " + zsFechaModifica;
+        return   "\n IdAntCiberDron       " + getIdZSAntCiberDron()
+               + "\n Serie                " + getZSSerie() 
+               + "\n Estado               " + getZSEstado() 
+               + "\n FechaCreacion        " + getZSFechaCreacion() 
+               + "\n FechaModifica        " + getZSFechaModifica()
+               +"\n------------------------------------------";
     }
 }

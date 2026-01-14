@@ -101,15 +101,15 @@ public class ZSHormigaDTO {
 
     @Override
     public String toString() {
-        return   "\n idHormiga            " + IdZSHormiga 
-               + "\n idHormigaTipo        " + IdZSHormigaTipo
-               + "\n idSexo               " + IdZSSexo
-               + "\n idEstado             " + IdZSEstado    
-               + "\n nombre               " + zsNombre 
-               + "\n descripcion          " + zsDescripcion 
-               + "\n estado               " + zsEstado  
-               + "\n fechaCreacion        " + zsFechaCreacion 
-               + "\n fechaModificacion    " + zsFechaModifica;
+        return   "\n IdHormiga            " + getIdZSHormiga() 
+               + "\n IdHormigaTipo        " + getIdZSHormigaTipo()
+               + "\n IdSexo               " + getZSIdSexo()
+               + "\n IdEstado             " + getZSIdEstado()   
+               + "\n Nombre               " + getZSNombre() 
+               + "\n Descripcion          " + getZSDescripcion()
+               + "\n Estado               " + getZSEstado()  
+               + "\n FechaCreacion        " + getZSFechaCreacion() 
+               + "\n FechaModificacion    " + getZSFechaModifica();
     }
     
     

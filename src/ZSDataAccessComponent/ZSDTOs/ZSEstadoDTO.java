@@ -85,11 +85,11 @@ public class ZSEstadoDTO {
 
     @Override
     public String toString(){
-        return   "\n idEstado             " + IdZSEstado
-               + "\n nombre               " + zsNombre 
-               + "\n descripcion          " + zsDescripcion 
-               + "\n estado               " + zsEstado  
-               + "\n fechaCreacion        " + zsFechaCreacion 
-               + "\n fechaModificacion    " + zsFechaModifica;
+        return   "\n IdEstado             " + getIdZSEstado()
+               + "\n Nombre               " + getZSNombre()
+               + "\n Descripcion          " + getZsDescripcion()
+               + "\n Estado               " + getZSEstado()
+               + "\n FechaCreacion        " + getZSFechaCreacion() 
+               + "\n FechaModificacion    " + getZSFechaModifica();
     }
 }

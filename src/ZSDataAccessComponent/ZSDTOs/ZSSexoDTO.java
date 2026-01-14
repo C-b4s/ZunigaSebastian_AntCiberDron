@@ -72,12 +72,12 @@ public class ZSSexoDTO {
 
     @Override
     public String toString() {
-        return   "\n idSexo               " + IdZSSexo
-               + "\n nombre               " + zsNombre 
-               + "\n descripcion          " + zsDescripcion 
-               + "\n estado               " + zsEstado  
-               + "\n fechaCreacion        " + zsFechaCreacion 
-               + "\n fechaModifica        " + zsFechaModifica;
+        return   "\n IdSexo               " + getIdZSSexo()
+               + "\n Nombre               " + getZSNombre() 
+               + "\n Descripcion          " + getZSDescripcion() 
+               + "\n Estado               " + getZSEstado()  
+               + "\n FechaCreacion        " + getZSFechaCreacion()
+               + "\n FechaModifica        " + getZSFechaModifica();
     }
 
 }
