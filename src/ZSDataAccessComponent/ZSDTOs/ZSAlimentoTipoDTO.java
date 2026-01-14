@@ -2,23 +2,30 @@ package ZSDataAccessComponent.ZSDTOs;
 
 public class ZSAlimentoTipoDTO {
     private Integer IdZSAlimentoTipo;
-    private String zsNombre;
-    private String zsDescripcion;
-    private String zsEstado;
-    private String zsFechaCreacion;
-    private String zsFechaModifica;
+    private String  zsNombre;
+    private String  zsDescripcion;
+    private String  zsEstado;
+    private String  zsFechaCreacion;
+    private String  zsFechaModifica;
+    
     
     public ZSAlimentoTipoDTO() {
     }
 
+    public ZSAlimentoTipoDTO(String zsNombre, String zsDescripcion) {
+        this.IdZSAlimentoTipo = 0;
+        this.zsNombre         = zsNombre;
+        this.zsDescripcion    = zsDescripcion;
+    }
+
     public ZSAlimentoTipoDTO(Integer IdZSAlimentoTipo, String zsNombre, String zsDescripcion, String zsEstado,
             String zsFechaCreacion, String zsFechaModifica) {
-        this.IdZSAlimentoTipo = IdZSAlimentoTipo;
-        this.zsNombre = zsNombre;
-        this.zsDescripcion = zsDescripcion;
-        this.zsEstado = zsEstado;
-        this.zsFechaCreacion = zsFechaCreacion;
-        this.zsFechaModifica = zsFechaModifica;
+        this.IdZSAlimentoTipo   = IdZSAlimentoTipo;
+        this.zsNombre           = zsNombre;
+        this.zsDescripcion      = zsDescripcion;
+        this.zsEstado           = zsEstado;
+        this.zsFechaCreacion    = zsFechaCreacion;
+        this.zsFechaModifica    = zsFechaModifica;
     }
 
     public Integer getIdZSAlimentoTipo() {
@@ -71,12 +78,14 @@ public class ZSAlimentoTipoDTO {
 
     @Override
     public String toString() {
-        return   "\n idAlimentoTipo       " + IdZSAlimentoTipo
-               + "\n nombre               " + zsNombre 
-               + "\n descripcion          " + zsDescripcion 
-               + "\n estado               " + zsEstado  
-               + "\n fechaCreacion        " + zsFechaCreacion 
-               + "\n fechaModificacion    " + zsFechaModifica;
+        return    getClass().getName()
+               + "\n IdAlimentoTipo       " + getIdZSAlimentoTipo()
+               + "\n nombre               " + getZSNombre() 
+               + "\n descripcion          " + getZSDescripcion() 
+               + "\n estado               " + getZSEstado()  
+               + "\n fechaCreacion        " + getZSFechaCreacion() 
+               + "\n fechaModificacion    " + getZSFechaModifica()
+               + "\n-------------------------------------------";
     }
 
     

@@ -1,0 +1,11 @@
+package ZSBusinessComponent.ZSEntities;
+
+import ZSBusinessComponent.ZSFactoryBL;
+import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
+import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
+
+public abstract class ZSHormiga {
+    protected ZSFactoryBL<ZSHormigaDTO> zsFactory = new ZSFactoryBL<>(ZSHormigaDAO.class);
+    protected ZSHormigaDTO zsData = new ZSHormigaDTO();
+
+}

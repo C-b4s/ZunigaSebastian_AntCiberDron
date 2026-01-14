@@ -121,7 +121,7 @@ SELECT
     H.IdZSHormiga
    ,HT.zsNombre AS ZSTipo
    ,S.zsNombre  AS ZSSexo
-   ,E.zsNombre  AS ZSEstado
+   ,E.zsNombre  AS ZSEstadoHormiga
    ,H.zsNombre  AS ZSNombre
    ,H.zsDescripcion
    ,H.zsEstado
@@ -133,7 +133,17 @@ JOIN ZSSexo           S  ON H.IdZSSexo        = S.IdZSSexo
 JOIN ZSEstado         E  ON H.IdZSEstado      = E.IdZSEstado
 WHERE H.zsEstado = 'A'; 
 
-SELECT * FROM vwZSHormiga;
+SELECT * FROM vwZSHormiga;  
+
+SELECT IdZSHormiga
+ ,ZSTipo
+ ,ZSSexo
+ ,ZSEstadoHormiga
+ ,ZSNombre
+ ,ZSDescripcion
+ ,ZSEstado
+ ,ZSFechaCreacion
+ ,ZSFechaModifica FROM vwZSHormiga;
 SELECT * FROM ZSHormiga;
 
 SELECT * FROM ZSEstado;

@@ -200,14 +200,14 @@ public class ZSDataHelperSQLiteDAO<T> implements IZSDataHelperSQLiteDAO<T>{
         }
     }
 
-    protected T zsMapResultSetToEntity(ResultSet rs) throws ZSAppException {
+    protected T zsMapResultSetToEntity(ResultSet zsRs) throws ZSAppException {
         try {
             T zsInstance = zsDTOClass.getDeclaredConstructor().newInstance();
-            ResultSetMetaData zsMeta = rs.getMetaData();
+            ResultSetMetaData zsMeta = zsRs.getMetaData();
 
             for (int i = 1; i <= zsMeta.getColumnCount(); i++) {
                 String zsCol = zsMeta.getColumnLabel(i); // usa alias si existen
-                Object zsVal = rs.getObject(i);
+                Object zsVal = zsRs.getObject(i);
 
                 Field zsField = zsDTOClass.getDeclaredField(zsCol);
                 if (!zsField.canAccess(zsInstance)) {

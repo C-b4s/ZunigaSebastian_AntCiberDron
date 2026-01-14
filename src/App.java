@@ -1,34 +1,48 @@
-import ZSAppComponent.ZSConsoleApp.ZSSistemaRuso;
-import ZSBusinessComponent.ZSEntities.ZSAutomata;
-import ZSDataAccessComponent.ZSDAO.ZSAlimentoTipoDAO;
-import ZSDataAccessComponent.ZSDAO.ZSEstadoDAO;
-import ZSDataAccessComponent.ZSDAO.ZSHormigaDAO;
-import ZSDataAccessComponent.ZSDAO.ZSHormigaTipoDAO;
-import ZSDataAccessComponent.ZSDAO.ZSSexoDAO;
-import ZSDataAccessComponent.ZSDTOs.ZSAlimentoTipoDTO;
-import ZSDataAccessComponent.ZSDTOs.ZSEstadoDTO;
-import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
-import ZSDataAccessComponent.ZSDTOs.ZSHormigaTipoDTO;
-import ZSDataAccessComponent.ZSDTOs.ZSSexoDTO;
-import ZSInfrastructureComponent.ZSAppException;
-import ZSInfrastructureComponent.ZSTools.ZSCMDColor;
-import ZSInfrastructureComponent.ZSTools.ZSCMDProgress;
-import ZSInfrastructureComponent.ZSTools.ZSMSG;
+import ZSBusinessComponent.ZSEntities.ZSHLarva;
+
 
 public class App {
     public static void main(String[] args) throws Exception {
+        
+        try {
+            ZSHLarva zsL = new ZSHLarva();
+            System.out.println(zsL.getLarva(1).toString());
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        } 
+        
+        
+        
+        
+        
         //Pruebas de DAO y DTO:
         // ZSSexoDAO zsSexo = new ZSSexoDAO(ZSSexoDTO.class, "ZSSexo", "IdZSSexo");
         // for (ZSSexoDTO sexo : zsSexo.zsReadAll()) 
         //     System.out.println(sexo.toString());
 
 
-        // ZSAlimentoTipoDAO zsAlimento = new ZSAlimentoTipoDAO(ZSAlimentoTipoDTO.class, "ZSAlimentoTipo", "IdZSAlimentoTipo");
+        // ZSAlimentoTipoDAO zsAlimento = new ZSAlimentoTipoDAO();
+        
+
+
+        // ZSAlimentoTipoDTO oDTO = zsAlimento.zsReadBy(1);
+        // oDTO.setZSNombre("CARNIVORO");
+        // oDTO.setZSDescripcion("Salado");
+        // zsAlimento.zsUpdate(oDTO);
 
         // for (ZSAlimentoTipoDTO alimento : zsAlimento.zsReadAll()) 
-        //     System.out.println(alimento.toString());
+        //    System.out.println(alimento.toString());
 
 
+
+
+        // try {
+        //     ZSHormigaDAO dao = new ZSHormigaDAO();
+        //     for (ZSVWHormigaDTO string : dao.zsReadAllvwHormiga())
+        //         System.out.println(string.toString());
+        // } catch (Exception e) {
+        // }
         // ZSHormigaTipoDAO zsHormigaTipo = new ZSHormigaTipoDAO(ZSHormigaTipoDTO.class, "zsHormigaTipo", "zsIdHormigaTipo");
 
         // for (ZSHormigaTipoDTO hormigaTipo : zsHormigaTipo.zsReadAll()) 
@@ -50,7 +64,9 @@ public class App {
         //     System.out.println(hormiga.toString());
         // }
 
-            
+        
+
+        //Pruebas con clases de ZSEntities:
         // ZSAutomata zsAutomata = new ZSAutomata();
         // boolean boom = zsAutomata.checkTipoArsenal("abcddddddd ");
 

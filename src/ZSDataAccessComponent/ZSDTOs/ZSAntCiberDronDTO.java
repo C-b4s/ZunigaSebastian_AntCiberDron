@@ -7,13 +7,13 @@ public class ZSAntCiberDronDTO {
     private String  zsFechaCreacion;
     private String  zsFechaModifica;
 
-public ZSAntCiberDronDTO(){}
+    public ZSAntCiberDronDTO(){}
 
     public ZSAntCiberDronDTO(Integer idZSAntCiberDron, String zsSerie, String zsEstado, String zsFechaCreacion,
             String zsFechaModifica) {
-        IdZSAntCiberDron = idZSAntCiberDron;
-        this.zsSerie = zsSerie;
-        this.zsEstado = zsEstado;
+        IdZSAntCiberDron     = idZSAntCiberDron;
+        this.zsSerie         = zsSerie;
+        this.zsEstado        = zsEstado;
         this.zsFechaCreacion = zsFechaCreacion;
         this.zsFechaModifica = zsFechaModifica;
     }
