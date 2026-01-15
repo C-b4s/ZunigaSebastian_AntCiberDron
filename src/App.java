@@ -1,4 +1,5 @@
 import ZSBusinessComponent.ZSFactoryBL;
+import ZSBusinessComponent.ZSEntities.ZSEnt;
 import ZSDataAccessComponent.ZSDAOs.ZSAntCiberDronDAO;
 import ZSDataAccessComponent.ZSDTOs.ZSAntCiberDronDTO;
 
@@ -6,10 +7,8 @@ import ZSDataAccessComponent.ZSDTOs.ZSAntCiberDronDTO;
 public class App {
     public static void main(String[] args) throws Exception {
         
-        ZSFactoryBL <ZSAntCiberDronDTO> zsFactoryBL = new ZSFactoryBL<>(ZSAntCiberDronDAO.class);
-
-         for(var dto: zsFactoryBL.zsGetAll())
-            System.out.println(dto.toString());
+        ZSEnt zsE = new ZSEnt();
+        zsE.zsLogin();
         //         System.out.println(dto.toString());
         //   }
         

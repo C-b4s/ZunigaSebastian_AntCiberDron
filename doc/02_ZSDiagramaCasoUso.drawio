@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="7d0Tu9rkKDQznFBmgFOc" name="Page-1">
-        <mxGraphModel dx="564" dy="563" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="1064" dy="626" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -15,17 +15,24 @@
                         <mxPoint x="373.6" y="327.57500000000005" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="15" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="13" target="6" edge="1">
+                <mxCell id="15" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="13" target="6" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="34" style="edgeStyle=none;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;" parent="1" source="13" target="30" edge="1">
+                <mxCell id="34" style="edgeStyle=none;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;exitX=0;exitY=0.3333333333333333;exitDx=0;exitDy=0;exitPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="13" target="30" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="13" value="ZSSistemaRuso" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" parent="1" vertex="1">
-                    <mxGeometry x="672" y="300" width="30" height="60" as="geometry"/>
+                <mxCell id="47" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;exitX=0.236;exitY=0.376;exitDx=0;exitDy=0;exitPerimeter=0;" edge="1" parent="1" source="13" target="35">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="937" y="402" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="51" style="edgeStyle=none;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="41" target="13">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="920" y="913" as="sourcePoint"/>
+                    </mxGeometry>
                 </mxCell>
                 <mxCell id="16" value="ZSANTDRON2K25" style="shape=umlFrame;whiteSpace=wrap;html=1;pointerEvents=0;recursiveResize=0;container=1;collapsible=0;width=160;" parent="1" vertex="1">
-                    <mxGeometry x="247" y="152" width="374" height="404" as="geometry"/>
+                    <mxGeometry x="247" y="152" width="578" height="957" as="geometry"/>
                 </mxCell>
                 <mxCell id="9" value="crear una bomba “BBA” que debe ...&lt;div&gt;(REQ3)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="16" vertex="1">
                     <mxGeometry x="125" y="218" width="127" height="76" as="geometry"/>
@@ -39,23 +46,61 @@
                 <mxCell id="28" value="crear un tipo de hormiga que derive de ...&lt;div&gt;(REQ4)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="16" vertex="1">
                     <mxGeometry x="28" y="307" width="129" height="76" as="geometry"/>
                 </mxCell>
-                <mxCell id="30" value="implementar la inteligencia artificial ...&lt;div&gt;(REQ5)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="16" vertex="1">
-                    <mxGeometry x="209" y="310" width="129" height="76" as="geometry"/>
+                <mxCell id="30" value="Implementar la inteligencia artificial ...&lt;div&gt;(REQ5)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="16" vertex="1">
+                    <mxGeometry x="212" y="356" width="129" height="76" as="geometry"/>
+                </mxCell>
+                <mxCell id="35" value="Solicitar autenticación (usuario y contraseña; agregar &quot;patmic&quot;,&quot;123&quot;)...&lt;div&gt;(REQ6)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="16">
+                    <mxGeometry x="265" y="451" width="156" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Cosechar (según su caso de estudio) desde el storage hormigas y comida...&lt;div&gt;(REQ7)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="16">
+                    <mxGeometry x="19.5" y="507" width="184.5" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Implementar IZSEntomólogo&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;(REQ8)&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="16">
+                    <mxGeometry x="258" y="583" width="184.5" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Preparar alimento y alimentar a sus hormigas almacenadas en la base de datos&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(REQ9)&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="16">
+                    <mxGeometry x="38" y="660" width="159" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Diseñar una propiedad a la ZSHormiga para la SuperHabilidad&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(REQ10)&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" vertex="1" parent="16">
+                    <mxGeometry x="217" y="732" width="200" height="95" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;Garantizar que la acción de preparar(Alimento): Alimento sea realizada solo por el entomólogo&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font color=&quot;#000000&quot;&gt;(REQ10)&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="16">
+                    <mxGeometry x="221" y="851" width="200" height="95" as="geometry"/>
                 </mxCell>
                 <mxCell id="25" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="1" source="2" target="9" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="26" style="edgeStyle=none;html=1;entryX=0;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" parent="1" source="9" target="13" edge="1">
+                <mxCell id="26" style="edgeStyle=none;html=1;entryX=0;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="9" target="13" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
-                <mxCell id="27" style="edgeStyle=none;html=1;entryX=0;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="5" target="13" edge="1">
+                <mxCell id="27" style="edgeStyle=none;html=1;entryX=0;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" source="5" target="13" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
                 </mxCell>
                 <mxCell id="31" value="ZSAntCiberDron" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#f5f5f5;fontColor=#333333;strokeColor=#666666;" parent="1" vertex="1">
-                    <mxGeometry x="665" y="480" width="30" height="60" as="geometry"/>
+                    <mxGeometry x="911" y="572" width="61" height="126" as="geometry"/>
                 </mxCell>
                 <mxCell id="32" style="edgeStyle=none;html=1;entryX=0;entryY=0.3333333333333333;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="30" target="31" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" style="edgeStyle=none;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="42" target="37">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" style="edgeStyle=none;html=1;exitX=0.5;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="42" target="39">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Entomólogo" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;" vertex="1" parent="1">
+                    <mxGeometry x="155" y="847" width="30" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fillColor=#dae8fc;strokeColor=#6c8ebf;entryX=0.409;entryY=0.349;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="38" target="13">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="930" y="414" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="49" style="edgeStyle=none;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="40" target="13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="ZSSistemaRuso" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
+                    <mxGeometry x="909" y="367" width="60" height="112" as="geometry"/>
                 </mxCell>
             </root>
         </mxGraphModel>

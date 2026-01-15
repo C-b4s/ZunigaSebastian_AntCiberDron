@@ -1,32 +1,30 @@
 App
 │
-├── AppComponent                ← Capa de presentación (UI/UX)
-│   ├── DesktopApp              ← App gráfica (Desktop)
-│   │   ├── ViewModels
-│   │   │   └── MainViewModel
-│   │   └── Views
-│   │
-│   └── ConsoleApp              ← App de terminal (usuario final)
-│       └── SistemaRuso.java    ← Punto de entrada
+├── ZSAppComponent                ← Capa de presentación (UI/UX)         │   │            
+│   │   
+│   └── ZSConsoleApp              ← App de terminal (usuario final)
+│       └── ZSSistemaRuso.java  ← Punto de entrada
+│       └── ZSKGD.java          ← Punto de entrada
 │
-├── BusinessComponent           ← DomainComponent: Lógica de negocio
-│   ├── Interfaces              ← Contratos de comportamiento / servicios
-│   ├── Services                ← Reglas de negocio
-│   └── Entities                ← Domain Models / Entidades del negocio
+├── ZSBusinessComponent              ← DomainComponent: Lógica de negocio
+│   ├── ZSInterfaces                 ← Contratos de comportamiento 
+│   ├── ZSServices                   ← Reglas de negocio
+│   └── ZSEntities                   ← Domain Models 
+│        │── ZSEntomologo.java     ← Clase abstracta de Entomologo
+│        │        └── ZSEnt.java
+│        │        └── ZSEntGen.java
+│         └── ZSGenoAlimento.java
+│                └── ZSX.java  
+│                └── ZSXX.java 
+│                └── ZSXY.java 
 │
-├── DataAccessComponent         ← Persistencia
-│   ├── Interfaces              ← Contratos (Repositories / DAOs)
-│   ├── DAOs                    ← Implementaciones
-│   ├── DTOs                    ← Objetos de transporte
-│   └── Helpers                 ← Mappers / utilidades DB
+├── DataAccessComponent          ← Persistencia
+│   ├── ZSInterfaces              ← Contratos (Repositories / DAOs)
+│   ├── ZSDAOs                    ← Implementaciones
+│   ├── ZSDTOs                    ← Objetos de transporte
+│   └── ZSHelpers                 ← Mappers / utilidades DB
 │
-└── InfrastructureComponent     ← Preocupaciones transversales
-    ├── Config                  ← Configuración
-    ├── Logging                 ← Logs
-    └── Tools                   ← Utilidades comunes
-
-│
-└── Tests                        ← Pruebas unitarias e integración
-    ├── DomainTests
-    ├── ApplicationTests
-    └── InfrastructureTests
+└── InfrastructureComponent      ← Preocupaciones transversales
+    ├── ZSConfig                  ← Configuración
+    ├── ZSLogging                 ← Logs
+    └── ZSTools                   ← Utilidades comunes

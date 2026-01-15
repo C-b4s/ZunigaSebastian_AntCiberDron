@@ -6,6 +6,8 @@ public abstract class ZSAppConfig {
     //Paths Storage
     public static final String ZSDATABASE = "jdbc:sqlite:storage\\Databases\\ZSAnt.sqlite";
     public static final String ZSDATAFILE = "storage\\DataFile\\ZunigaSebastian.csv";
+    public static final String ZSANTNEST = "storage\\DataFile\\ZSAntNest.txt";
+    public static final String ZSANTFOOD = "storage\\DataFile\\ZSAntFood.txt";
     public static final String ZSLOGFILE  = "storage\\Logs\\ZSAppErrors.log";
 
 
