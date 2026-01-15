@@ -235,7 +235,7 @@ public ZSHormiga zsAlimentarAnt(
             ZSCMDColor.RESET);
 
         System.out.println(
-            ZSCMDColor.GREEN + "  [*] Hormigas:" + ZSCMDColor.RESET);
+            ZSCMDColor.GREEN + "  [*] " + titulo +": " + ZSCMDColor.RESET);
         for (String v : validos) {
             ZSCMDProgress.showSpinner();;
             System.out.println(ZSCMDColor.BLUE + v + ZSCMDColor.RESET);
