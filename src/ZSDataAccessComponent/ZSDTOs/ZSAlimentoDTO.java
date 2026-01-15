@@ -2,7 +2,7 @@ package ZSDataAccessComponent.ZSDTOs;
 
 public class ZSAlimentoDTO {
     private Integer IdZSAlimento;
-    private String  zsAlimentoTipo;
+    private Integer  IdZSAlimentoTipo;
     private String  zsNombre;
     private String  zsDescripcion;
     private String  zsEstado;
@@ -12,10 +12,10 @@ public class ZSAlimentoDTO {
     
     public ZSAlimentoDTO(){}
 
-    public ZSAlimentoDTO(Integer idZSAlimento, String zsAlimentoTipo, String zsNombre, String zsDescripcion,
+    public ZSAlimentoDTO(Integer idZSAlimento, Integer idZSAlimentoTipo, String zsNombre, String zsDescripcion,
             String zsEstado) {
         IdZSAlimento = idZSAlimento;
-        this.zsAlimentoTipo = zsAlimentoTipo;
+        this.IdZSAlimentoTipo = idZSAlimentoTipo;
         this.zsNombre = zsNombre;
         this.zsDescripcion = zsDescripcion;
         this.zsEstado = zsEstado;
@@ -29,12 +29,12 @@ public class ZSAlimentoDTO {
         IdZSAlimento = idZSAlimento;
     }
 
-    public String getZSAlimentoTipo() {
-        return zsAlimentoTipo;
+    public Integer getIdZSAlimentoTipo() {
+        return IdZSAlimentoTipo;
     }
 
-    public void setZSAlimentoTipo(String zsAlimentoTipo) {
-        this.zsAlimentoTipo = zsAlimentoTipo;
+    public void setIdZSAlimentoTipo(Integer idZSAlimentoTipo) {
+        this.IdZSAlimentoTipo = idZSAlimentoTipo;
     }
 
     public String getZsNombre() {

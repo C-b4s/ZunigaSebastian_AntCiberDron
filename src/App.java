@@ -1,4 +1,13 @@
+import java.util.List;
+
+import ZSBusinessComponent.ZSFactoryBL;
+import ZSBusinessComponent.ZSEntities.ZSAlimento;
 import ZSBusinessComponent.ZSEntities.ZSEnt;
+import ZSBusinessComponent.ZSEntities.ZSHormiga;
+import ZSDataAccessComponent.ZSDAOs.ZSAlimentoDAO;
+import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
+import ZSDataAccessComponent.ZSDTOs.ZSAlimentoDTO;
+import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 
 
 
@@ -7,8 +16,48 @@ public class App {
         
         ZSEnt zsE = new ZSEnt();
         zsE.zsLogin();
-        zsE.zsCosecharHormiga();
-        zsE.zsCosecharAlimento();
+        List<ZSHormiga> zsHormigas = zsE.zsEtlAntNest();
+
+        ZSFactoryBL<ZSHormigaDTO> zsHFactory =
+        new ZSFactoryBL<>(ZSHormigaDAO.class);
+
+        for (ZSHormiga h : zsHormigas) {
+            ZSHormigaDTO dto = new ZSHormigaDTO();
+
+            // Mapeo explícito
+            dto.setIdZSHormigaTipo(h.getZsData().getIdZSHormigaTipo());
+            dto.setZSNombre(h.getZsData().getZSNombre());
+
+            // Reglas del sistema
+            dto.setZSIdSexo(1);
+            dto.setZSIdEstado(1);
+            dto.setZSDescripcion("Generada por cosecha");
+
+            zsHFactory.zsAdd(dto);
+        }
+
+        List<ZSAlimento> zsAlimentos = zsE.zsEtlAntFood();
+        ZSFactoryBL <ZSAlimentoDTO> zsAFactory =
+        new ZSFactoryBL<>(ZSAlimentoDAO.class);
+
+        for (ZSAlimento a : zsAlimentos){
+            ZSAlimentoDTO dto = new ZSAlimentoDTO();
+
+            // Mapeo explícito
+            dto.setZSNombre(a.getZsData().getZsNombre());
+            dto.setIdZSAlimentoTipo(a.getZsData().getIdZSAlimentoTipo());
+
+            // Reglas del sistema
+            dto.setZSDescripcion("Generado por cosecha");
+
+            zsAFactory.zsAdd(dto);
+        }
+
+
+
+}
+
+
         
 
         //         System.out.println(dto.toString());
@@ -111,5 +160,5 @@ public class App {
         //     ZSMSG.showMsgError(appEx.getMessage());
         // }
 
-    }
-}
+ }
+

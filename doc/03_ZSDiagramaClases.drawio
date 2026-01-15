@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="n9VuuKUGydhQ7raKuHDX" name="Page-1">
-        <mxGraphModel dx="2891" dy="2849" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+        <mxGraphModel dx="2965" dy="2898" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -269,7 +269,7 @@
                     <mxGeometry y="132" width="290" height="23" as="geometry"/>
                 </mxCell>
                 <mxCell id="109" value="ZSKGD" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=20;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=12;fillColor=#d5e8d4;strokeColor=#82b366;" parent="1" vertex="1">
-                    <mxGeometry x="-299" y="-1835" width="447" height="188" as="geometry"/>
+                    <mxGeometry x="-298" y="-1809" width="447" height="188" as="geometry"/>
                 </mxCell>
                 <mxCell id="110" value="- zsCedula : String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontColor=#004C99;" parent="109" vertex="1">
                     <mxGeometry y="20" width="447" height="15" as="geometry"/>
@@ -595,7 +595,7 @@
                     <mxGeometry y="208" width="173.06" height="23" as="geometry"/>
                 </mxCell>
                 <mxCell id="252" value="&lt;&lt;Abstract&gt;&gt;&#xa;ZSEntomologo" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=35;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="1" vertex="1">
-                    <mxGeometry x="498" y="-1857" width="255" height="195" as="geometry"/>
+                    <mxGeometry x="507" y="-1816" width="255" height="195" as="geometry"/>
                 </mxCell>
                 <mxCell id="253" value="- zsUsuario: String" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;fontColor=#004C99;" parent="252" vertex="1">
                     <mxGeometry y="35" width="255" height="20" as="geometry"/>
@@ -612,10 +612,10 @@
                 <mxCell id="260" value="+ zsPreparar(ZSAlimento): zsAlimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="252" vertex="1">
                     <mxGeometry y="103" width="255" height="23" as="geometry"/>
                 </mxCell>
-                <mxCell id="283" value="+ zsCosecharHormiga( ): List&lt;ZSHormiga&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="252">
+                <mxCell id="283" value="+ zsCosecharHormiga( ): List&lt;ZSHormiga&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="252" vertex="1">
                     <mxGeometry y="126" width="255" height="23" as="geometry"/>
                 </mxCell>
-                <mxCell id="284" value="+ zsCosecharAlimento( ): LisAlimento&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" vertex="1" parent="252">
+                <mxCell id="284" value="+ zsCosecharAlimento( ): LisAlimento&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="252" vertex="1">
                     <mxGeometry y="149" width="255" height="23" as="geometry"/>
                 </mxCell>
                 <mxCell id="262" value=". . ." style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="252" vertex="1">
@@ -705,6 +705,17 @@
                 </mxCell>
                 <mxCell id="PMtmCAOWE-vXquafEqy2-285" style="edgeStyle=none;html=1;exitX=-0.006;exitY=0.195;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=block;endFill=0;startSize=15;endSize=15;exitPerimeter=0;" parent="1" source="260" target="113" edge="1">
                     <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="286" value="" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=oval;endFill=0;sketch=0;sourcePerimeterSpacing=0;targetPerimeterSpacing=0;endSize=10;exitX=0.75;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="252">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="762" y="-1833" as="sourcePoint"/>
+                        <mxPoint x="698" y="-1851" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="288" value="IZSEntomologo" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];" vertex="1" connectable="0" parent="286">
+                    <mxGeometry x="0.2061" y="1" relative="1" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
                 </mxCell>
             </root>
         </mxGraphModel>

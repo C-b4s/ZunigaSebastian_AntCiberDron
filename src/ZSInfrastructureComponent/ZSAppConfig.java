@@ -20,6 +20,7 @@ public abstract class ZSAppConfig {
     public static final String ZSMSG_DEFAULT_ERROR  = "Ups! Error inesperado. Por favor, contacte al administrador del sistema.";
     public static final String ZSMSG_DEFAULT_CLASS = "undefined";
     public static final String ZS_DEFAULT_METHOD   = "undefined";
+    public static final String ZSFOODNEST = null;
 
     private ZSAppConfig() {}
 }

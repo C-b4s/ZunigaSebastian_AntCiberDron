@@ -1,25 +1,16 @@
 package ZSBusinessComponent.ZSEntities;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
-
 import ZSAppComponent.ZSConsoleApp.ZSSistemaRuso;
-import ZSBusinessComponent.ZSFactoryBL;
 import ZSBusinessComponent.ZSInterfaces.IZSEntomologo;
-import ZSDataAccessComponent.ZSDAOs.ZSAlimentoDAO;
-import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
-import ZSDataAccessComponent.ZSDTOs.ZSAlimentoDTO;
-import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 import ZSInfrastructureComponent.ZSAppConfig;
-import ZSInfrastructureComponent.ZSAppException;
 import ZSInfrastructureComponent.ZSTools.ZSCMDColor;
-import ZSInfrastructureComponent.ZSTools.ZSCMDProgress;
+
 
 public abstract class ZSEntomologo implements IZSEntomologo{
     // Refactorización: se eliminaron los siguientes atributos: private String zsEstado;
@@ -149,68 +140,53 @@ public List<ZSHormiga> zsEtlAntNest() {
 }
 
 
-    // ───────────────────────────────────────
-    // Mapeo dominio
-    // ───────────────────────────────────────
 
-    private List<ZSHormiga> zsMapearHormigas(List<String> datos) {
-    List<ZSHormiga> lista = new ArrayList<>();
+    private List<ZSHormiga> zsMapearHormigas(List<String> zsDatos) {
+    List<ZSHormiga> zsLista = new ArrayList<>();
 
-    int larva = 1;
-    int zangano = 1;
+    int zsLarva = 1;
+    int zsZangano = 1;
 
-    for (String d : datos) {
+    for (String d : zsDatos) {
 
         if ("HLarva".equalsIgnoreCase(d)) {
-            lista.add(
-                new ZSHLarva("HormigaLarva(" + larva++ + ")")
+            zsLista.add(
+                new ZSHLarva("HormigaLarva(" + zsLarva++ + ")")
             );
         }
         else if ("HZángano".equalsIgnoreCase(d)) {
-            lista.add(
-                new ZSHZangano("HormigaZangano(" + zangano++ + ")")
+            zsLista.add(
+                new ZSHZangano("HormigaZangano(" + zsZangano++ + ")")
             );
         }
     }
-    return lista;
+    return zsLista;
 }
 
-}
-    private List<ZSAlimentoDTO> zsMapearAlimentos(List<String> datos) {
 
-    List<ZSAlimentoDTO> lista = new ArrayList<>();
+    private List<ZSAlimento> zsMapearAlimentos(List<String> zsDatos) {
+
+    List<ZSAlimento> zsLista = new ArrayList<>();
 
     int zsContadorNectarivoro = 1;
     int zsContadorOmnivoro    = 1;
 
-    for (String d : datos) {
+    for (String d : zsDatos) {
 
-        ZSAlimentoDTO zsAlimento = new ZSAlimentoDTO();
 
         // ───── Nectarívoro ─────
         if ("ANectarivoro".equalsIgnoreCase(d)) {
 
-            zsAlimento.setIdZSAlimento(4);
-            zsAlimento.setZSNombre(
-                "AlimentoNectarivoro(" + zsContadorNectarivoro++ + ")"
-            );
+            zsLista.add(new ZSNectarivoro("AlimentoNectarivoro(" + zsContadorNectarivoro++ + ")"));
         }
         // ───── Omnívoro ─────
         else if ("AOmnivoro".equalsIgnoreCase(d)) {
 
-            zsAlimento.setIdZSAlimento(3);
-            zsAlimento.setZSNombre(
-                "AlimentoOmnivoro(" + zsContadorOmnivoro++ + ")"
-            );
+            zsLista.add(new ZSOmnivoro("AlimentoOmnivoro(" + zsContadorOmnivoro++ + ")"));
         }
-        else {
-            continue;
-        }
-
-        lista.add(zsAlimento);
     }
 
-    return lista;
+    return zsLista;
 }
 
 

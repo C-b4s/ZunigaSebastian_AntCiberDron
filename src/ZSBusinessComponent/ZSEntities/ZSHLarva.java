@@ -6,6 +6,11 @@ import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 import ZSInfrastructureComponent.ZSAppException;
 
 public class ZSHLarva extends ZSHormiga{
+
+    public ZSHLarva() {
+        super("Larva",1);
+    } 
+
     public ZSHLarva(String zsNombre) {
         super(zsNombre,1);
     }
