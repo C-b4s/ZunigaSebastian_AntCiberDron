@@ -3,6 +3,7 @@
 
 DROP TABLE IF EXISTS ZSAntCiberDron;
 DROP TABLE IF EXISTS ZSHormiga;
+DROP TABLE IF EXISTS ZSAlimento;
 DROP TABLE IF EXISTS ZSSexo;
 DROP TABLE IF EXISTS ZSEstado;
 DROP TABLE IF EXISTS ZSHormigaTipo;
@@ -39,6 +40,15 @@ CREATE TABLE ZSSexo (
      IdZSSexo         INTEGER PRIMARY KEY AUTOINCREMENT
     ,zsNombre         VARCHAR(15) NOT NULL UNIQUE
     ,zsDescripcion    VARCHAR(100) NULL
+    ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
+    ,zsFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,zsFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+);
+
+CREATE TABLE ZSAlimento (
+     IdZSAlimento     INTEGER PRIMARY KEY AUTOINCREMENT
+    ,IdZSAlimentoTipo INTEGER NOT NULL REFERENCES ZSAlimentoTipo (IdZSAlimentoTipo)
+    ,zsNombre         VARCHAR(15) NOT NULL
     ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
     ,zsFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
     ,zsFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))

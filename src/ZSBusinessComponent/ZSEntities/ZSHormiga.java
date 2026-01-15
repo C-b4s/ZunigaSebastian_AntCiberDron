@@ -5,7 +5,12 @@ import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
 import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 
 public abstract class ZSHormiga {
+    
     protected ZSFactoryBL<ZSHormigaDTO> zsFactory = new ZSFactoryBL<>(ZSHormigaDAO.class);
     protected ZSHormigaDTO zsData = new ZSHormigaDTO();
 
+    public ZSHormiga(String zsNombre, Integer zsIdHormigaTipo) {
+        this.zsData.setZSNombre(zsNombre);
+        this.zsData.setIdZSHormigaTipo(zsIdHormigaTipo);
+    }
 }

@@ -5,16 +5,20 @@ import java.util.List;
 import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 import ZSInfrastructureComponent.ZSAppException;
 
-public class ZSHLarva extends ZSHormiga{
-    public ZSHLarva(String zsNombre) {
-        super(zsNombre,1);
+public class ZSHZangano extends ZSHormiga{
+
+    public ZSHZangano() {
+        super("Zangano",5);
+    }
+    public ZSHZangano(String zsNombre) {
+        super(zsNombre,5);
     }
 
-    public ZSHormigaDTO getLarva(int zsId) throws ZSAppException{
+    public ZSHormigaDTO getZangano(int zsId) throws ZSAppException{
         return zsFactory.zsGetBy(zsId);
     }
     
-    public List<ZSHormigaDTO> getLarvas() throws ZSAppException{
+    public List<ZSHormigaDTO> getZanganos() throws ZSAppException{
         return zsFactory.zsGetAll();
     }
 
@@ -28,6 +32,7 @@ public class ZSHLarva extends ZSHormiga{
 
     @Override
     public String toString(){
-        return "ZSHLarva {}";
+        return "ZSHZangano {}";
     }
+
 }

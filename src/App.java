@@ -1,7 +1,5 @@
-import ZSBusinessComponent.ZSFactoryBL;
 import ZSBusinessComponent.ZSEntities.ZSEnt;
-import ZSDataAccessComponent.ZSDAOs.ZSAntCiberDronDAO;
-import ZSDataAccessComponent.ZSDTOs.ZSAntCiberDronDTO;
+
 
 
 public class App {
@@ -9,6 +7,10 @@ public class App {
         
         ZSEnt zsE = new ZSEnt();
         zsE.zsLogin();
+        zsE.zsCosecharHormiga();
+        zsE.zsCosecharAlimento();
+        
+
         //         System.out.println(dto.toString());
         //   }
         

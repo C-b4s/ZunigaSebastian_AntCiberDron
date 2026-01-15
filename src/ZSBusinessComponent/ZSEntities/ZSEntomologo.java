@@ -9,14 +9,19 @@ import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
 
+import ZSAppComponent.ZSConsoleApp.ZSSistemaRuso;
 import ZSBusinessComponent.ZSFactoryBL;
+import ZSBusinessComponent.ZSInterfaces.IZSEntomologo;
+import ZSDataAccessComponent.ZSDAOs.ZSAlimentoDAO;
 import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
+import ZSDataAccessComponent.ZSDTOs.ZSAlimentoDTO;
 import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 import ZSInfrastructureComponent.ZSAppConfig;
 import ZSInfrastructureComponent.ZSAppException;
 import ZSInfrastructureComponent.ZSTools.ZSCMDColor;
+import ZSInfrastructureComponent.ZSTools.ZSCMDProgress;
 
-public abstract class ZSEntomologo {
+public abstract class ZSEntomologo implements IZSEntomologo{
     // Refactorización: se eliminaron los siguientes atributos: private String zsEstado;
     // private ZSGenoAlimento zsGenoma;
     private String zsUsuario;
@@ -89,93 +94,157 @@ public abstract class ZSEntomologo {
         }
     }
 
-    public void zsCosecharDato()
-            throws ZSAppException {
-        // Tipos válidos de hormiga
-        Set<String> zsTiposValidos = Set.of(
-                "HLarva",
-                "HZángano",
-                "HSoldado",
-                "HObrera",
-                "HReina",
-                "HRastreadora"
-        );
 
-        // Conjuntos para evitar duplicados y mantener orden
-        List<String> zsHormigasValidas = new ArrayList<>();
-        Set<String>  zsDatosBasura     = new LinkedHashSet<>();
+    @Override
+public List<ZSHormiga> zsEtlAntNest() {
 
+    Set<String> tiposValidosHormiga = Set.of(
+        "HLarva",
+        "HZángano",
+        "HSoldado",
+        "HObrera",
+        "HReina",
+        "HRastreadora"
+    );
 
-        try (BufferedReader br = new BufferedReader(new FileReader(ZSAppConfig.ZSANTNEST))) {
+    List<String> zsValidos = new ArrayList<>();
+    Set<String>  basura  = new LinkedHashSet<>();
 
-            String linea;
+    ZSSistemaRuso zsSistemaRuso = new ZSSistemaRuso();
+    zsSistemaRuso.zsCosecharArchivo(
+        ZSAppConfig.ZSANTNEST,
+        tiposValidosHormiga,
+        zsValidos,
+        basura
+    );
 
-            while ((linea = br.readLine()) != null) {
-
-                // Separar por comas
-                String[] zsTokens = linea.split(",");
-
-                for (String zsToken : zsTokens) {
-
-                    String zsDato = zsToken.trim();
-
-                    if (zsDato.isEmpty()) continue;
-
-                    if (zsTiposValidos.contains(zsDato)) {
-                        zsHormigasValidas.add(zsDato);
-                    } else {
-                        zsDatosBasura.add(zsDato);
-                    }
-                }
-            }
-
-        } catch (IOException e) {
-            System.out.println(ZSCMDColor.RED + "ERROR AL LEER EL ARCHIVO: " + e.getMessage() + ZSCMDColor.RESET);
-            return;
-        }
-        
-        zsUpdateHormiga(zsHormigasValidas);
-        
-        
-    }
-
-    private void zsImprimirReporteCosecha(List<String> zsHormigasValidas, Set<String> zsDatosBasura) {
-        System.out.println("[*] Hormigas");
-    }
-
-//Refactorización: se creó el método zsUpdateHormigas
-protected void zsUpdateHormiga(List<String> zsHormigasValidas)
-        throws ZSAppException {
-
-    ZSFactoryBL<ZSHormigaDTO> zsFactoryBL =
-            new ZSFactoryBL<>(ZSHormigaDAO.class);
-
-    int zsContadorLarva   = 1;
-    int zsContadorZangano = 1;
-
-    for (String tipo : zsHormigasValidas) {
-
-        ZSHormigaDTO zsHormiga = new ZSHormigaDTO();
-
-        if ("HLarva".equalsIgnoreCase(tipo)) {
-
-            zsHormiga.setIdZSHormigaTipo(1);
-            zsHormiga.setZSNombre("HormigaLarva(" + zsContadorLarva++ + ")");
-            zsFactoryBL.zsAdd(zsHormiga);
-        }
-        else if ("HZángano".equalsIgnoreCase(tipo)) {
-
-            zsHormiga.setIdZSHormigaTipo(5);
-            zsHormiga.setZSNombre("HormigaZangano(" + zsContadorZangano++ + ")");
-            zsFactoryBL.zsAdd(zsHormiga);
-        }
-    }
+    zsImprimirCosecha("HORMIGAS", zsValidos, basura);
+    return zsMapearHormigas(zsValidos);
 }
 
-};
-
     
 
-    
+    @Override
+    public List<ZSAlimento> zsEtlAntFood() {
+
+        Set<String> tiposValidosAlimento = Set.of(
+            "Nectarívoros",
+            "Omnívoro"
+        );
+
+        List<String> zsValidos = new ArrayList<>();
+        Set<String>  zsBasura  = new LinkedHashSet<>();
+
+        ZSSistemaRuso zsSistemaRuso = new ZSSistemaRuso();
+        zsSistemaRuso.zsCosecharArchivo(
+        ZSAppConfig.ZSFOODNEST,
+        tiposValidosAlimento,
+        zsValidos,
+        zsBasura
+    );
+
+    zsImprimirCosecha("ALIMENTOS", zsValidos, zsBasura);
+
+    return zsMapearAlimentos(zsValidos);
+}
+
+
+    // ───────────────────────────────────────
+    // Mapeo dominio
+    // ───────────────────────────────────────
+
+    private List<ZSHormiga> zsMapearHormigas(List<String> datos) {
+    List<ZSHormiga> lista = new ArrayList<>();
+
+    int larva = 1;
+    int zangano = 1;
+
+    for (String d : datos) {
+
+        if ("HLarva".equalsIgnoreCase(d)) {
+            lista.add(
+                new ZSHLarva("HormigaLarva(" + larva++ + ")")
+            );
+        }
+        else if ("HZángano".equalsIgnoreCase(d)) {
+            lista.add(
+                new ZSHZangano("HormigaZangano(" + zangano++ + ")")
+            );
+        }
+    }
+    return lista;
+}
+
+}
+    private List<ZSAlimentoDTO> zsMapearAlimentos(List<String> datos) {
+
+    List<ZSAlimentoDTO> lista = new ArrayList<>();
+
+    int zsContadorNectarivoro = 1;
+    int zsContadorOmnivoro    = 1;
+
+    for (String d : datos) {
+
+        ZSAlimentoDTO zsAlimento = new ZSAlimentoDTO();
+
+        // ───── Nectarívoro ─────
+        if ("ANectarivoro".equalsIgnoreCase(d)) {
+
+            zsAlimento.setIdZSAlimento(4);
+            zsAlimento.setZSNombre(
+                "AlimentoNectarivoro(" + zsContadorNectarivoro++ + ")"
+            );
+        }
+        // ───── Omnívoro ─────
+        else if ("AOmnivoro".equalsIgnoreCase(d)) {
+
+            zsAlimento.setIdZSAlimento(3);
+            zsAlimento.setZSNombre(
+                "AlimentoOmnivoro(" + zsContadorOmnivoro++ + ")"
+            );
+        }
+        else {
+            continue;
+        }
+
+        lista.add(zsAlimento);
+    }
+
+    return lista;
+}
+
+
+    // ───────────────────────────────────────
+    // Impresión elegante
+    // ───────────────────────────────────────
+
+    private void zsImprimirCosecha(
+            String titulo,
+            List<String> validos,
+            Set<String> basura) {
+
+        System.out.println(
+            ZSCMDColor.CYAN +
+            "\n╔══════════════════════════════╗"
+        );
+        System.out.println("║  COSECHA DE " + titulo);
+        System.out.println("╚══════════════════════════════╝" +
+            ZSCMDColor.RESET);
+
+        System.out.println(
+            ZSCMDColor.GREEN + "  ✔ VÁLIDOS:" + ZSCMDColor.RESET);
+        for (String v : validos) {
+            System.out.println("    • " + v);
+        }
+
+        System.out.println(
+            ZSCMDColor.RED + "  ✖ BASURA:" + ZSCMDColor.RESET);
+        for (String b : basura) {
+            System.out.println("    • " + b);
+        }
+    }
+
+    };
+
     
 
