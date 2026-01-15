@@ -2,6 +2,8 @@ package ZSBusinessComponent.ZSEntities;
 
 import java.util.List;
 
+import ZSBusinessComponent.ZSFactoryBL;
+import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
 import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 import ZSInfrastructureComponent.ZSAppException;
 
@@ -22,12 +24,14 @@ public class ZSHZangano extends ZSHormiga{
         return zsFactory.zsGetAll();
     }
 
-    public ZSHormiga comer(String comida){
+    public Boolean comer(String comida) throws ZSAppException{
         if(comida.equals("omnivoro")){
-            return new ZSHZangano();
-        }
-        return this;
-            
+            System.out.println("La hormiga sigue siendo un zangano");
+            return true;
+        }else{
+            System.out.println("La hormiga no puede comer ese tipo de alimento.");
+            return false;
+        }            
     }   
 
     @Override

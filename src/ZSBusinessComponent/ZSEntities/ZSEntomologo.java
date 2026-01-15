@@ -9,7 +9,9 @@ import java.util.Set;
 import ZSAppComponent.ZSConsoleApp.ZSSistemaRuso;
 import ZSBusinessComponent.ZSInterfaces.IZSEntomologo;
 import ZSInfrastructureComponent.ZSAppConfig;
+import ZSInfrastructureComponent.ZSAppException;
 import ZSInfrastructureComponent.ZSTools.ZSCMDColor;
+import ZSInfrastructureComponent.ZSTools.ZSCMDProgress;
 
 
 public abstract class ZSEntomologo implements IZSEntomologo{
@@ -53,7 +55,7 @@ public abstract class ZSEntomologo implements IZSEntomologo{
     }
 
     //Refactorización: se creó el método zsLogin
-    public static void zsLogin() {
+    public void zsLogin() {
 
         Scanner zsScLogin = new Scanner(System.in);
 
@@ -87,7 +89,7 @@ public abstract class ZSEntomologo implements IZSEntomologo{
 
 
     @Override
-public List<ZSHormiga> zsEtlAntNest() {
+public List<ZSHormiga> zsEtlAntNest() throws InterruptedException {
 
     Set<String> tiposValidosHormiga = Set.of(
         "HLarva",
@@ -116,7 +118,7 @@ public List<ZSHormiga> zsEtlAntNest() {
     
 
     @Override
-    public List<ZSAlimento> zsEtlAntFood() {
+    public List<ZSAlimento> zsEtlAntFood() throws InterruptedException {
 
         Set<String> tiposValidosAlimento = Set.of(
             "Nectarívoros",
@@ -189,6 +191,31 @@ public List<ZSHormiga> zsEtlAntNest() {
     return zsLista;
 }
 
+public ZSHormiga zsAlimentarAnt(
+        ZSEntomologo entomologo,
+        ZSHormiga hormiga,
+        ZSAlimento alimento
+) throws ZSAppException {
+
+    if (entomologo == null)
+        throw new ZSAppException("No existe entomólogo");
+
+    if (hormiga == null)
+        throw new ZSAppException("No existe la hormiga");
+
+    if (alimento == null)
+        throw new ZSAppException("No existe el alimento");
+    
+    if ("OMNIVORO".equalsIgnoreCase(alimento.getZsData().getZsNombre())) {
+        hormiga.getZsData().setIdZSHormigaTipo(5);
+        hormiga.getZsData().setZSIdEstado(1);
+    }else{
+        hormiga.getZsData().setZSIdEstado(2);
+    } 
+
+    return hormiga;
+}
+
 
     // ───────────────────────────────────────
     // Impresión elegante
@@ -197,7 +224,7 @@ public List<ZSHormiga> zsEtlAntNest() {
     private void zsImprimirCosecha(
             String titulo,
             List<String> validos,
-            Set<String> basura) {
+            Set<String> basura) throws InterruptedException {
 
         System.out.println(
             ZSCMDColor.CYAN +
@@ -208,19 +235,17 @@ public List<ZSHormiga> zsEtlAntNest() {
             ZSCMDColor.RESET);
 
         System.out.println(
-            ZSCMDColor.GREEN + "  ✔ VÁLIDOS:" + ZSCMDColor.RESET);
+            ZSCMDColor.GREEN + "  [*] Hormigas:" + ZSCMDColor.RESET);
         for (String v : validos) {
-            System.out.println("    • " + v);
-        }
-
-        System.out.println(
-            ZSCMDColor.RED + "  ✖ BASURA:" + ZSCMDColor.RESET);
+            ZSCMDProgress.showSpinner();;
+            System.out.println(ZSCMDColor.BLUE + v + ZSCMDColor.RESET);
         for (String b : basura) {
-            System.out.println("    • " + b);
+            ZSCMDProgress.showSpinner();
+            System.out.println(ZSCMDColor.RED + "    • " + b + ZSCMDColor.RESET);
         }
     }
-
-    };
+  }
+};
 
     
 

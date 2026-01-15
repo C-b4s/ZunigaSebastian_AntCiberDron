@@ -22,6 +22,7 @@ public class ZSOmnivoro extends ZSAlimento{
         return zsFactory.zsGetAll();
     }
 
+    
 
     @Override
     public String toString(){

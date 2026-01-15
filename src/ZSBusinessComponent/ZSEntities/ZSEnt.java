@@ -9,4 +9,10 @@ public class ZSEnt extends ZSEntomologo {
         super(zsUsuario, zsContrasena, zsNombre);
     }
 
+    @Override
+    public ZSHormiga zsAlimentarAnt(ZSHormiga zsHormiga, ZSAlimento zsAlimento) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'zsAlimentarAnt'");
+    }
+
 }

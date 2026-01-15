@@ -2,6 +2,8 @@ package ZSBusinessComponent.ZSEntities;
 
 import java.util.List;
 
+import ZSBusinessComponent.ZSFactoryBL;
+import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
 import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 import ZSInfrastructureComponent.ZSAppException;
 
@@ -23,12 +25,15 @@ public class ZSHLarva extends ZSHormiga{
         return zsFactory.zsGetAll();
     }
 
-    public ZSHormiga comer(String comida){
+    //Refactorización: Se cambió el tipo de retorno de Boolean a ZSHormiga para permitir la creación de un nuevo ZSHZangano.
+    public Boolean comer(String comida) throws ZSAppException{
         if(comida.equals("omnivoro")){
-            return new ZSHZangano();
-        }
-        return this;
-            
+            System.out.println("La larva ha comido y se ha transformado en Zangano.");
+            return true;
+        }else{
+            System.out.println("La larva no puede comer ese tipo de alimento.");
+            return false;
+        }            
     }   
 
     @Override

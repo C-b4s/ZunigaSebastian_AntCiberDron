@@ -7,7 +7,7 @@ import ZSDataAccessComponent.ZSDTOs.ZSAlimentoDTO;
 
 public abstract class ZSAlimento {
 
-    
+    private ZSGenoAlimento zsGenoAlimento;
     protected ZSFactoryBL<ZSAlimentoDTO> zsFactory = new ZSFactoryBL<>(ZSAlimentoDAO.class);
     protected ZSAlimentoDTO zsData = new ZSAlimentoDTO();
 
@@ -26,4 +26,8 @@ public abstract class ZSAlimento {
         this.zsData = zsData;
     }
 
+    @Override
+    public String toString() {
+        return "ZSAlimento {}";
+    }
 }

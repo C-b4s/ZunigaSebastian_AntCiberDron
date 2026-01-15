@@ -166,3 +166,11 @@ WHERE IdZSEstado = 2;
 
 UPDATE ZSEstado SET zsNombre = 'X'
 WHERE IdZSEstado = 3;
+
+SELECT *
+FROM ZSHormiga
+WHERE IdZSHormiga BETWEEN 5 AND 34;
+
+
+DELETE FROM ZSHormiga
+WHERE IdZSHormiga BETWEEN 5 AND 34;

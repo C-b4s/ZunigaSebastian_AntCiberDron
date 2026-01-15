@@ -1,5 +1,6 @@
 package ZSBusinessComponent.ZSEntities;
 
-public class ZSGenoAlimento {
+public abstract class ZSGenoAlimento {
+    ZSGenoAlimento(){}
 
 }

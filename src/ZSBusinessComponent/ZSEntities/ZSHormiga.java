@@ -13,4 +13,12 @@ public abstract class ZSHormiga {
         this.zsData.setZSNombre(zsNombre);
         this.zsData.setIdZSHormigaTipo(zsIdHormigaTipo);
     }
+
+    public ZSHormigaDTO getZsData() {
+        return zsData;
+    }
+
+    public void setZsData(ZSHormigaDTO zsData) {
+        this.zsData = zsData;
+    }
 }

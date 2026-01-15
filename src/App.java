@@ -44,9 +44,10 @@ public class App {
             ZSAlimentoDTO dto = new ZSAlimentoDTO();
 
             // Mapeo explícito
-            dto.setZSNombre(a.getZsData().getZsNombre());
             dto.setIdZSAlimentoTipo(a.getZsData().getIdZSAlimentoTipo());
-
+            dto.setZSNombre(a.getZsData().getZsNombre());
+            
+            
             // Reglas del sistema
             dto.setZSDescripcion("Generado por cosecha");
 
