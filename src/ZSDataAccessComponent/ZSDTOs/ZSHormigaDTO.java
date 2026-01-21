@@ -1,6 +1,8 @@
 package ZSDataAccessComponent.ZSDTOs;
 
 public class ZSHormigaDTO {
+
+
     private Integer IdZSHormiga;
     private Integer IdZSHormigaTipo;
     private Integer IdZSSexo;
@@ -12,8 +14,20 @@ public class ZSHormigaDTO {
     private String zsFechaModifica;
 
 
+    
+
     public ZSHormigaDTO(){}
 
+    public ZSHormigaDTO(Integer idZSHormiga, Integer idZSHormigaTipo, Integer idZSSexo, Integer idZSEstado,
+            String zsNombre, String zsDescripcion) {
+        IdZSHormiga = idZSHormiga;
+        IdZSHormigaTipo = idZSHormigaTipo;
+        IdZSSexo = idZSSexo;
+        IdZSEstado = idZSEstado;
+        this.zsNombre = zsNombre;
+        this.zsDescripcion = zsDescripcion;
+    }
+    
     public ZSHormigaDTO(Integer IdZSHormiga, Integer IdZSHormigaTipo, Integer IdZSSexo, Integer IdZSEstado,
             String zsNombre, String zsDescripcion, String zsEstado, String zsFechaCreacion, String zsFechaModifica) {
         this.IdZSHormiga = IdZSHormiga;

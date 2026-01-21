@@ -7,7 +7,8 @@ import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 public abstract class ZSHormiga {
     
     protected ZSFactoryBL<ZSHormigaDTO> zsFactory = new ZSFactoryBL<>(ZSHormigaDAO.class);
-    protected ZSHormigaDTO zsData = new ZSHormigaDTO();
+    public ZSHormigaDTO zsData = new ZSHormigaDTO();
+    ZSAntCiberDron usaAntCiberDron = new ZSAntCiberDron();
 
     public ZSHormiga(String zsNombre, Integer zsIdHormigaTipo) {
         this.zsData.setZSNombre(zsNombre);

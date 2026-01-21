@@ -1,58 +1,14 @@
-import java.util.List;
-
-import ZSBusinessComponent.ZSFactoryBL;
-import ZSBusinessComponent.ZSEntities.ZSAlimento;
+import ZSAppComponent.ZSConsoleApp.ZSSistemaRuso;
 import ZSBusinessComponent.ZSEntities.ZSEnt;
-import ZSBusinessComponent.ZSEntities.ZSHormiga;
-import ZSDataAccessComponent.ZSDAOs.ZSAlimentoDAO;
-import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
-import ZSDataAccessComponent.ZSDTOs.ZSAlimentoDTO;
-import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
-
-
-
 public class App {
     public static void main(String[] args) throws Exception {
         
-        ZSEnt zsE = new ZSEnt();
-        zsE.zsLogin();
-        List<ZSHormiga> zsHormigas = zsE.zsEtlAntNest();
+    ZSSistemaRuso sistemaRuso = new ZSSistemaRuso();
+    ZSEnt zsEntomologoComun = new ZSEnt("ZunigaSebastian","1706");
 
-        ZSFactoryBL<ZSHormigaDTO> zsHFactory =
-        new ZSFactoryBL<>(ZSHormigaDAO.class);
+    sistemaRuso.zsStart(zsEntomologoComun);
 
-        for (ZSHormiga h : zsHormigas) {
-            ZSHormigaDTO dto = new ZSHormigaDTO();
-
-            // Mapeo explícito
-            dto.setIdZSHormigaTipo(h.getZsData().getIdZSHormigaTipo());
-            dto.setZSNombre(h.getZsData().getZSNombre());
-
-            // Reglas del sistema
-            dto.setZSIdSexo(1);
-            dto.setZSIdEstado(1);
-            dto.setZSDescripcion("Generada por cosecha");
-
-            zsHFactory.zsAdd(dto);
-        }
-
-        List<ZSAlimento> zsAlimentos = zsE.zsEtlAntFood();
-        ZSFactoryBL <ZSAlimentoDTO> zsAFactory =
-        new ZSFactoryBL<>(ZSAlimentoDAO.class);
-
-        for (ZSAlimento a : zsAlimentos){
-            ZSAlimentoDTO dto = new ZSAlimentoDTO();
-
-            // Mapeo explícito
-            dto.setIdZSAlimentoTipo(a.getZsData().getIdZSAlimentoTipo());
-            dto.setZSNombre(a.getZsData().getZsNombre());
-            
-            
-            // Reglas del sistema
-            dto.setZSDescripcion("Generado por cosecha");
-
-            zsAFactory.zsAdd(dto);
-        }
+}
 
 
 
@@ -161,5 +117,5 @@ public class App {
         //     ZSMSG.showMsgError(appEx.getMessage());
         // }
 
- }
+ 
 

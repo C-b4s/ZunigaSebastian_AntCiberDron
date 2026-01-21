@@ -5,8 +5,8 @@ public class ZSEnt extends ZSEntomologo {
         super();
     }
 
-    public ZSEnt(String zsUsuario, String zsContrasena, String zsNombre) {
-        super(zsUsuario, zsContrasena, zsNombre);
+    public ZSEnt(String zsUsuario, String zsContrasena) {
+        super(zsUsuario, zsContrasena);
     }
 
     @Override

@@ -1,17 +1,74 @@
 package ZSAppComponent.ZSConsoleApp;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
-import java.util.Set;
-
+import ZSBusinessComponent.ZSFactoryBL;
 import ZSBusinessComponent.ZSEntities.ZSCoordenadaUK;
+import ZSBusinessComponent.ZSEntities.ZSEntomologo;
+import ZSDataAccessComponent.ZSDAOs.ZSAlimentoDAO;
+import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
+import ZSDataAccessComponent.ZSDTOs.ZSAlimentoDTO;
+import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
+import ZSInfrastructureComponent.ZSAppException;
 import ZSInfrastructureComponent.ZSTools.ZSCMDColor;
+import ZSInfrastructureComponent.ZSTools.ZSCMDProgress;
 
 public class ZSSistemaRuso {
+    ZSFactoryBL <ZSHormigaDTO> zsAntFactoryBl = new ZSFactoryBL<>(ZSHormigaDAO.class);
+    ZSFactoryBL <ZSAlimentoDTO> zsFoodFactoryBL = new ZSFactoryBL<>(ZSAlimentoDAO.class);
+
+    public void zsStart(ZSEntomologo zsEntomologo) throws InterruptedException{
+        System.out.println(ZSCMDColor.BLUE + "Sistema Ruso iniciado...");
+        ZSCMDProgress.showSpinner();
+        System.out.println(ZSCMDColor.RESET);
+        try{
+            if(zsAutenticarEntomologo(zsEntomologo)){
+                zsSaveAlimento(zsEntomologo);
+                zsSaveHormiga(zsEntomologo);
+            }else{
+                System.out.println(ZSCMDColor.RED + "Acceso denegado. Saliendo del sistema..." + ZSCMDColor.RESET);
+                System.exit(0);
+            }
+        }catch(Exception e){
+            System.out.println(ZSCMDColor.RED + "Error durante la autenticación: " + e.getMessage() + ZSCMDColor.RESET);
+        }
+        
+    }
+
+
+    private void zsSaveAlimento(ZSEntomologo zsEntomologo) throws ZSAppException {
+        try {
+            List <ZSAlimentoDTO> zsLstAlimento = zsEntomologo.zsEtlAntFood();
+
+            for (ZSAlimentoDTO zsADTO : zsLstAlimento){
+                zsFoodFactoryBL.zsAdd(zsADTO);
+                System.out.println("Alimento guardado: " + zsADTO.toString());
+            }
+        } catch (Exception e) {
+            throw new ZSAppException(ZSCMDColor.GREEN + "Error al guardar alimento: " + e.getMessage() + ZSCMDColor.RESET);
+        }
+    }
+
+
+    public boolean zsAutenticarEntomologo(ZSEntomologo zsentomologo){
+        int zsCountTry = 0;
+        while (zsCountTry++ < 3){
+            System.out.println("=================== LOGIN ===================");
+            System.out.print("Ingrese su usuario: ");
+            String u = System.console().readLine();
+            System.out.print("Ingrese su contrasena: ");
+            String p = System.console().readLine();
+
+            if (zsentomologo.zsCheckLogin(u,p)){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
     public List<ZSCoordenadaUK> zsReadCoord(String zsFileNamePath) throws IOException {
     List<ZSCoordenadaUK> zsLstCoord = new java.util.ArrayList<>();
     List<String> zsAllLines = Files.readAllLines(Paths.get(zsFileNamePath));
@@ -25,40 +82,19 @@ public class ZSSistemaRuso {
     return zsLstCoord;
 }
 
-    public void zsCosecharArchivo(
-            String zsRutaArchivo,
-            Set<String> zsTiposValidos,
-            List<String> zsSalidaValidos,
-            Set<String> zsSalidaBasura) {
+    public void zsSaveHormiga(ZSEntomologo zsEntomologo) throws ZSAppException{
+        try {
+            List <ZSHormigaDTO> zsLstHormigas = zsEntomologo.zsEtlAntNest(); //cosecha hormigas
+            
+            for (ZSHormigaDTO zsHDTO : zsLstHormigas){
+                zsAntFactoryBl.zsAdd(zsHDTO);
+                System.out.println("Hormiga guardada: " + zsHDTO.toString());
+            }       
 
-        try (BufferedReader br = new BufferedReader(
-                new FileReader(zsRutaArchivo))) {
-
-            String zsLinea;
-
-            while ((zsLinea = br.readLine()) != null) {
-
-                String[] zsTokens = zsLinea.split(",");
-
-                for (String zsToken : zsTokens) {
-
-                    String zsDato = zsToken.trim();
-                    if (zsDato.isEmpty()) continue;
-
-                    if (zsTiposValidos.contains(zsDato)) {
-                        zsSalidaValidos.add(zsDato);
-                    } else {
-                        zsSalidaBasura.add(zsDato);
-                    }
-                }
-            }
-
-        } catch (IOException e) {
-            System.out.println(
-                ZSCMDColor.RED +
-                "ERROR SISTEMA RUSO: " + e.getMessage() +
-                ZSCMDColor.RESET
-            );
+        } catch (Exception e) {
+            throw new ZSAppException(ZSCMDColor.GREEN + "Error al guardar hormiga: " + e.getMessage() + ZSCMDColor.RESET);
         }
     }
+
+
 }

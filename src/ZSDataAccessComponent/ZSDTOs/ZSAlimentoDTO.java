@@ -4,20 +4,27 @@ public class ZSAlimentoDTO {
     private Integer IdZSAlimento;
     private Integer  IdZSAlimentoTipo;
     private String  zsNombre;
-    private String  zsDescripcion;
     private String  zsEstado;
     private String  zsFechaCreacion;
     private String  zsFechaModifica;
 
     
+    
+
     public ZSAlimentoDTO(){}
 
-    public ZSAlimentoDTO(Integer idZSAlimento, Integer idZSAlimentoTipo, String zsNombre, String zsDescripcion,
+
+    public ZSAlimentoDTO(Integer idZSAlimento, Integer idZSAlimentoTipo, String zsNombre) {
+        IdZSAlimento = idZSAlimento;
+        IdZSAlimentoTipo = idZSAlimentoTipo;
+        this.zsNombre = zsNombre;
+    }
+
+    public ZSAlimentoDTO(Integer idZSAlimento, Integer idZSAlimentoTipo, String zsNombre,
             String zsEstado) {
         IdZSAlimento = idZSAlimento;
         this.IdZSAlimentoTipo = idZSAlimentoTipo;
         this.zsNombre = zsNombre;
-        this.zsDescripcion = zsDescripcion;
         this.zsEstado = zsEstado;
     }
 
@@ -45,14 +52,6 @@ public class ZSAlimentoDTO {
         this.zsNombre = zsNombre;
     }
 
-    public String getZSDescripcion() {
-        return zsDescripcion;
-    }
-
-    public void setZSDescripcion(String zsDescripcion) {
-        this.zsDescripcion = zsDescripcion;
-    }
-
     public String getZSEstado() {
         return zsEstado;
     }
@@ -75,6 +74,16 @@ public class ZSAlimentoDTO {
 
     public void setZSFechaModifica(String zsFechaModifica) {
         this.zsFechaModifica = zsFechaModifica;
+    }
+
+    @Override
+    public String toString(){
+          return "\n IdAlimento            " + getIdZSAlimento() 
+                + "\n IdAlimentoTipo        "+ getIdZSAlimentoTipo()
+                + "\n Nombre               " + getZsNombre() 
+                + "\n Estado               " + getZSEstado()  
+                + "\n FechaCreacion        " + getZSFechaCreacion() 
+                + "\n FechaModificacion    " + getZSFechaModifica();
     }
     
 }

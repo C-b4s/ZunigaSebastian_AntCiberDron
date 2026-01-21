@@ -1,9 +1,6 @@
 package ZSBusinessComponent.ZSEntities;
 
 import java.util.List;
-
-import ZSBusinessComponent.ZSFactoryBL;
-import ZSDataAccessComponent.ZSDAOs.ZSHormigaDAO;
 import ZSDataAccessComponent.ZSDTOs.ZSHormigaDTO;
 import ZSInfrastructureComponent.ZSAppException;
 

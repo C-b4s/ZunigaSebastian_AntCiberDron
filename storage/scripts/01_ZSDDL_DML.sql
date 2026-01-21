@@ -59,7 +59,7 @@ CREATE TABLE ZSHormiga (
     ,IdZSHormigaTipo  INTEGER NOT NULL REFERENCES ZSHormigaTipo (IdZSHormigaTipo)
     ,IdZSSexo         INTEGER NOT NULL REFERENCES ZSSexo        (IdZSSexo)
     ,IdZSEstado       INTEGER NOT NULL REFERENCES ZSEstado      (IdZSEstado)
-    ,zsNombre         VARCHAR(15) NOT NULL UNIQUE
+    ,zsNombre         VARCHAR(15) NOT NULL 
     ,zsDescripcion    VARCHAR(100) NULL
     ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
     ,zsFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
@@ -169,8 +169,8 @@ WHERE IdZSEstado = 3;
 
 SELECT *
 FROM ZSHormiga
-WHERE IdZSHormiga BETWEEN 5 AND 34;
+WHERE IdZSHormiga BETWEEN 5 AND 19;
 
 
 DELETE FROM ZSHormiga
-WHERE IdZSHormiga BETWEEN 5 AND 34;
+WHERE IdZSHormiga BETWEEN 5 AND 19;
