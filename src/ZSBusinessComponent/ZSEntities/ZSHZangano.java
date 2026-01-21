@@ -6,13 +6,6 @@ import ZSInfrastructureComponent.ZSAppException;
 
 public class ZSHZangano extends ZSHormiga{
 
-    public ZSHZangano() {
-        super("Zangano",5);
-    }
-    public ZSHZangano(String zsNombre) {
-        super(zsNombre,5);
-    }
-
     public ZSHormigaDTO getZangano(int zsId) throws ZSAppException{
         return zsFactory.zsGetBy(zsId);
     }

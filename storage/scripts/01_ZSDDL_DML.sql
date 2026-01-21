@@ -174,3 +174,12 @@ WHERE IdZSHormiga BETWEEN 5 AND 19;
 
 DELETE FROM ZSHormiga
 WHERE IdZSHormiga BETWEEN 5 AND 19;
+
+CREATE TABLE ZSEntomologo (
+     IdZSEntomologo   INTEGER PRIMARY KEY AUTOINCREMENT     
+    ,zsUsuario        VARCHAR(15) NOT NULL UNIQUE
+    ,zsClave          VARCHAR(100) NULL
+    ,zsEstado         VARCHAR(1)  NOT NULL DEFAULT ('A')
+    ,zsFechaCreacion  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+    ,zsFechaModifica  DATETIME NOT NULL  DEFAULT (datetime('now','localtime'))
+)

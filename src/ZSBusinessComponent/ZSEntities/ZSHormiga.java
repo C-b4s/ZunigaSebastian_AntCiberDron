@@ -10,10 +10,7 @@ public abstract class ZSHormiga {
     public ZSHormigaDTO zsData = new ZSHormigaDTO();
     ZSAntCiberDron usaAntCiberDron = new ZSAntCiberDron();
 
-    public ZSHormiga(String zsNombre, Integer zsIdHormigaTipo) {
-        this.zsData.setZSNombre(zsNombre);
-        this.zsData.setIdZSHormigaTipo(zsIdHormigaTipo);
-    }
+
 
     public ZSHormigaDTO getZsData() {
         return zsData;
